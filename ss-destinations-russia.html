@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceSafari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            background-color: transparent;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            height: 1800px;
+            background-color: lightsteelblue;
+        }
+
+        /* Adjust styles for the home section as needed */
+        .home {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://t3.ftcdn.net/jpg/00/97/42/76/240_F_97427603_7hc4EfKcx14N755wF1qHmF0FmvCRdknb.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 92vh;
+        }
+
+        nav {
+            position: sticky;
+            top: 1rem;
+            display: flex;
+            z-index: 1;
+        }
+
+        /* Adjust logo image size */
+        .logo img {
+            width: 10rem;
+            height: 2.5rem;
+            position: relative;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+            backdrop-filter: blur(5px);
+            border-radius: 200px;
+            z-index: 2;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            width: 95%;
+            height: 10%;
+            margin: 0 auto;
+          }
+          
+          /* Menu styles */
+          .menu {
+            display: flex;
+            gap: 1.9rem;
+            list-style: none;
+            margin-left: 30rem;
+          }
+          
+          .menu li {
+            display: inline-block;
+          }
+          
+          .menu li a {
+            font-weight: bolder;
+            color: white;
+            padding: 0.2rem 0.09rem;
+            text-decoration: none;
+            font-size: large;
+          }
+          
+          .menu li a:hover {
+            background-color: lightslategray;
+            border-radius: 5px;
+          }
+          
+          .menu .submenu {
+            display: none;
+            position: absolute;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+            border-top: none;
+            border-radius: 10px;
+            z-index: 1;
+          }
+          
+          .menu .submenu li {
+            display: block;
+          }
+          
+          .menu li ul li {
+            margin: 0.5rem 0.3rem;
+          }
+          
+          .submenu img {
+            border-radius: 3px;
+            margin: 0 0.3rem;
+          }
+          
+          .menu li:hover .submenu {
+            display: block;
+            margin-top: 0.2rem;
+          }
+          
+          /* Login/signup area styles */
+          .signup a {
+            background-color: #008ecf;
+            font-size: large;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+          }
+          
+          .signup a:hover {
+            background-color: #fff;
+            color: #008ecf;
+          }
+          
+          .head-txt {
+            color: #CCCCCC;
+            letter-spacing: 0px;
+            position: absolute;
+            top: 25rem;
+            left: 2rem;
+            z-index: 1; 
+          }
+          .head-txt span {
+            color: lightyellow;
+            font-size: 40px;
+          }
+          
+          .head-txt p {
+            font-size: 18px;
+          }
+          
+          .head-txt:hover {
+            color: #FFFFFF;
+            transition: 1s ease-in;
+          }
+          
+        .explorebtn{
+            background-color: white;
+            margin: 0rem;
+            border-radius: 15px;
+            padding: .6rem 1rem;
+        }
+        .explore a{
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+        .explore a:hover{
+            color: white;
+            background-color: black;
+        }
+        .explore::after{
+            transition: 0.3s ease;
+        }
+        .namecont{
+            padding: 1rem 3rem;
+        }
+        .destination {
+            margin-left: 2.5rem;
+            background-color: aliceblue;
+            border-radius: 12px;
+            width: 25rem;
+            height: 21rem;        
+            position: relative;
+        }
+        .destination:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 10px 10px 2px gray ;
+        }
+        .destinationcont{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            row-gap: 3rem;
+        }
+        .destination img {
+            width: 25rem;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 11.4rem;
+            border-top-right-radius: 12px;
+            border-top-left-radius: 12px;
+        }
+        .destination h2 {
+            text-align: center;
+            text-wrap: wrap;
+        }
+        .destination p {
+            text-align: justify;
+            text-wrap: wrap;
+            padding: 0.2rem 0.5rem;
+        }
+        .book-button {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: white;
+            margin: 2rem 7rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        .bookbtn{
+            margin: 0.5rem 1rem;
+        }
+        .destinationcont a{
+            margin: 0;
+        }
+        .con {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+        .a1 {
+            font-size: 30px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 25px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+        }
+        .a1:hover {
+            background-color: #0056b3;
+        }
+        .book-button:hover{
+            background-color: darkorchid;
+        }
+        .main-footer {
+            width: 100%;
+            height: 20rem;
+            background-color: black;
+        }
+        
+        .main-footer-logo {
+            width: 12rem;
+            height: 3rem;
+            margin: 2rem 2rem;
+        }
+        
+        .main-footer-social {
+            list-style: none;
+            margin: 6rem 0.5rem;
+            padding: 1rem;
+        }
+        .main-footer-social a{
+            margin: 0.4rem;
+        }
+        .footer-copyright{
+            letter-spacing: 0.09rem;
+        }
+        
+        .main-footer-category {
+            display: flex;
+            margin-top: -19rem;
+            gap: 4rem;
+            height: 2rem;
+            justify-content: right;
+        }
+        
+        .main-footer-category-1 {
+            display: grid;
+            color: #FFFFFF;
+        }
+        
+        .main-footer-category-1 a,
+        .main-footer-category-2 a {
+            color: azure;
+            text-decoration: none;
+        }
+        
+        .main-footer-category-1 ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            letter-spacing: 1px;
+        }
+        
+        .main-footer-category-2 {
+            display: grid;
+            color: #FFFFFF;
+        }
+        
+        .main-footer-category-2 ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            letter-spacing: 1px;
+        }
+        
+        .main-footer-category-3 {
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+        }
+        .main-footer-category-3 img{
+            border-radius: 20px;
+        }
+        
+        .main-footer-category-3box1{
+            letter-spacing: 2rem;
+            margin: .5rem 0.5rem;
+        }
+        .main-footer-category-3box2{
+            letter-spacing: 4rem;
+            margin: 1rem 3rem;
+        }
+        
+        .footer-copyright {
+            color: #FFFFFF;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--Home Section Starts-->
+    <section class="home">
+        <nav class="nav-background">
+            <div class="logo">
+                <img src="images/newlogo1.png" alt="SpiceSafari">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="spicesafari-about.html">About</a></li>
+                <li><a href="#">Destinations</a>
+                    <ul class="submenu">
+                        <li><img src="https://t4.ftcdn.net/jpg/01/63/13/31/360_F_163133107_nAlMgjPUyciTEnZCs4GF97wSTYXDAHAn.webp" width="30" height="15" ><a href="ss-destinations-india.html">India</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/01/07/55/38/240_F_107553806_koihrIkK5nhOJ0xb4YCQoycuR5MRiOYJ.jpg" width="30" height="20" alt=""><a href="ss-destinations-uae.html" >United Arab Emirates</a></li>
+
+                        <li><img src="https://t4.ftcdn.net/jpg/00/65/12/49/240_F_65124908_UpNHzTdQn2HNAIT8yYqybMQeGfsRmVc7.jpg" width="30" height="20" alt=""><a href="ss-destinations-usa.html">United States of America</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/35/76/34/240_F_35763485_gQJYDbJe7k4RUMwOurLBilnBmsjSPJ9w.jpg" width="30" height="20" alt=""><a href="ss-destinations-eur.html">Europe</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/01/04/47/12/240_F_104471279_8yKN8aFzt4yPsU8MdYjCXqequAPMLgSK.jpg" width="30" height="20" alt=""><a href="ss-destinations-aus.html">Australia</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/62/19/54/240_F_62195416_wfzM4Baz70OjEU54EhsCpvuQWlIhukPg.jpg" width="30" height="20" alt=""><a href="ss-destinations-jap.html">Japan</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/97/42/76/240_F_97427603_7hc4EfKcx14N755wF1qHmF0FmvCRdknb.jpg" width="30" height="20" alt=""><a href="ss-destinations-russia.html">Russia</a></li>
+                    </ul>
+                </li>
+                <li><a href="spicesafari-packages.html#1apac2bkag3ces">Packages</a></li>
+                <li><a href="spicesafari-contact.html">Contact</a></li>
+                <div class="signup">
+                    <a href="spicesafari-register.html">Login</a>
+                </div>
+            </ul>
+        </nav>
+        
+        <div class="head-txt">
+            <div class="head-txt-txt">
+                <span>Explore Popular Destinations of Russia</span><br><br>
+                <p>Russia, officially known as the Russian Federation, is the largest country in the world by land area, spanning Eastern Europe and Northern Asia. Russia is a vast and diverse country with a complex history, rich cultural heritage, and significant influence on global politics and economics.</p>
+            </div> <br>
+            <div class="explore">
+                <a class="explorebtn" href="#name">Explore Now</a>
+            </div>
+        </div>
+    </section>
+    <!--Home Section Ends-->
+
+    <!--Destination Section Starts-->
+    <section>
+        <div class="namecont">
+            <div class="cont">
+                <ul id="name">
+                    <li><a class="a1" href="ss-destinations-eur.html">Europe</a></li>
+                    <li><a class="a1" href="ss-destinations-uae.html">UAE</a></li>
+                    <li><a class="a1" href="ss-destinations-usa.html">USA</a></li>
+                    <li><a class="a1" href="ss-destinations-india.html">India</a></li>
+                    <li><a class="a1" href="ss-destinations-aus.html">Australia</a></li>
+                    <li><a class="a1" href="ss-destinations-jap.html">Japan</a></li>
+                    <li><a class="a1" href="ss-destinations-russia.html">Russia</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="destinationcont">
+            <div class="destination" id="moscow">
+                <img src="https://media.gettyimages.com/id/155388930/photo/moscow.jpg?b=1&s=170667a&w=0&k=20&c=CtlxNKdcwZGr3S0EyEaBfdc6sGOHEjXTXaiRNmdUgHo=" alt="Moscow">
+                <h2>Moscow</h2>
+                <p>Moscow, the capital of Russia, is known for its iconic landmarks such as the Kremlin, Red Square, and St. Basil's Cathedral.</p>
+                <div class="bookbtn">
+                    <!-- Wikipedia link for Moscow -->
+                    <a href="https://en.wikipedia.org/wiki/Moscow" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="stpetersburg">
+                <img src="https://th.bing.com/th/id/OIP.6BlZrqf_SqfvHk-NrgjlTAHaE9?rs=1&pid=ImgDetMain" alt="St. Petersburg">
+                <h2>St. Petersburg</h2>
+                <p>St. Petersburg is famous for its beautiful architecture, including the Winter Palace, the Hermitage Museum, and the Church of the Savior on Spilled Blood.</p>
+                <div class="bookbtn">
+                    <!-- Wikipedia link for St. Petersburg -->
+                    <a href="https://en.wikipedia.org/wiki/Saint_Petersburg" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="sochi">
+                <img src="https://mediaim.expedia.com/destination/1/52730cf3d165527f8f415453d5f2944e.jpg" alt="Sochi">
+                <h2>Sochi</h2>
+                <p>Sochi, located on the Black Sea coast, is known for its subtropical climate, beaches, and the site of the 2014 Winter Olympics.</p>
+                <div class="bookbtn">
+                    <!-- Wikipedia link for Sochi -->
+                    <a href="https://en.wikipedia.org/wiki/Sochi" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="vladivostok">
+                <img src="https://cdni.rbth.com/rbthmedia/images/all/2016/09/03/vladivostok_tass_16462303_b.jpg" alt="Vladivostok">
+                <h2>Vladivostok</h2>
+                <p>Vladivostok is a major Pacific port city in Russia known for its Golden Horn Bay, sandy beaches, and the impressive Russky Bridge.</p>
+                <div class="bookbtn">
+                    <!-- Wikipedia link for Vladivostok -->
+                    <a href="https://en.wikipedia.org/wiki/Vladivostok" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="ekaterinburg">
+                <img src="https://th.bing.com/th/id/OIP.ckCSofFP1ovcjpMU-UDJvwHaE6?rs=1&pid=ImgDetMain" alt="Ekaterinburg">
+                <h2>Yekaterinburg</h2>
+                <p>Yekaterinburg, located on the eastern side of the Ural Mountains, is known for its rich history, vibrant culture, and beautiful architecture.</p>
+                <div class="bookbtn">
+                    <!-- Wikipedia link for Yekaterinburg -->
+                    <a href="https://en.wikipedia.org/wiki/Yekaterinburg" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="novosibirsk">
+                <img src="https://i.pinimg.com/originals/06/45/07/064507588628cbbb6c2255692d570a56.jpg" alt="Novosibirsk">
+                <h2>Novosibirsk</h2>
+                <p>Novosibirsk, located in Siberia, is Russia's third-largest city and is known for its thriving cultural scene and scientific research institutes.</p>
+                <div class="bookbtn">
+                    <!-- Wikipedia link for Novosibirsk -->
+                    <a href="https://en.wikipedia.org/wiki/Novosibirsk" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="kazan">
+                <img src="https://cdni.rbth.com/rbthmedia/images/2020.06/original/5ef06c6d15e9f933714e12f8.jpg" alt="Kazan">
+                <h2>Kazan</h2>
+                <p>Kazan, the capital of Tatarstan, is known for its unique blend of Russian and Tatar cultures, historic architecture, and vibrant atmosphere.</p>
+                <div class="bookbtn">
+                    <!-- Wikipedia link for Kazan -->
+                    <a href="https://en.wikipedia.org/wiki/Kazan" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="sofia">
+                <img src="https://i.pinimg.com/originals/f0/44/96/f044960686024d866d8e0ad9401f4cd2.jpg" alt="Sofia">
+                <h2>Sofia</h2>
+                <p>Sofia, the capital of Bulgaria, is known for its beautiful Orthodox churches, ancient Roman ruins, and vibrant cultural scene.</p>
+                <div class="bookbtn">
+                    <!-- Wikipedia link for Sofia -->
+                    <a href="https://en.wikipedia.org/wiki/Sofia" class="book-button">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </section> <br><br>
+    <!--Destination Section Ends-->
+    <footer>
+        <div class="main-footer">
+            <div class="main-footer-content">
+                <a href="index.html"><img class="main-footer-logo" src="images/newlogo1.png" height="60rem" width="60rem" alt=""></a>
+                <div class="main-footer-social">
+                    <a class="social-1" href="https://instagram.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/174/174855.png" width="35px" height="35px" alt=""></a>
+                    <a class="social-2" href="https://linkedin.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="35px" height="35px" alt=""></a>
+                    <a class="social-3" href="https://wa.me/+919429984468"><img
+                            src="https://cdn-icons-png.flaticon.com/128/3536/3536445.png" width="35px" height="35px" alt=""></a>
+                    <a class="social-4" href="https://x.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/733/733579.png" width="35px" height="35px" alt=""></a>
+                    <div class="footer-copyright">
+                    <h4>&copy 2024 | All Rights Reserved | SpiceSafari <br>
+                    Managed by: Krish Thakker , Sarthak Tandel and Dhyey Visodiya</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer-category">
+            <div class="main-footer-category-1">
+                <h3>About SpiceSafari</h3> <br>
+                <ul>
+                    <li><a href="spicesafari-about.html">About Us</a></li>
+                    <li><a href="">Write to Us</a></li>
+                    <li><a href="">Terms & Conditions</a></li>
+                    <li><a href="">Policies</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="main-footer-category-2">
+                <h3>Category</h3> <br>
+                <ul>
+                    <li><a href="">Packages</a></li>
+                    <li><a href="">Bus Tickets</a></li>
+                    <li><a href="">Flight Tickets</a></li>
+                    <li><a href="">Train Tickets</a></li>
+                    <li><a href="">Hotel Booking</a></li>
+                    <li><a href="">Destinations</a></li>
+                </ul>
+            </div>
+            <div class="main-footer-category-3">
+                <h2>Our Partners: </h2> <br>
+                <div class="main-footer-category-3box1">
+                    <a href="https://makemytrip.com"><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png" width="150px" height="50px" alt=""></a>
+
+                    <a class="main-footer-category-3-img-1" href="https://gsrtc.in"><img src="https://imgs.search.brave.com/V5aQ-gF1n6cCe1U0LdXvVJ9cNCA6SbxMNlnfT3NWaZk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L2xv/Z29wZWRpYS9pbWFn/ZXMvYi9iMS9HU1JU/Qy5wbmcvcmV2aXNp/b24vbGF0ZXN0L3Nj/YWxlLXRvLXdpZHRo/LWRvd24vMjQwP2Ni/PTIwMjAwNTIxMDYw/MTQ1.jpeg" width="150px" height="90px"></a>
+                </div>
+                <div class="main-footer-category-3box2">
+                    <a class="main-footer-category-3-img-2" href="https://irctc.co.in"><img src="https://www.irctc.co.in/nget/assets/images/logo.png" alt=""></a>
+
+                    <a class="main-footer-category-3-img-3" href="https://booking.com"><img src="https://imgs.search.brave.com/faUcO868uF89TBA3AeOsyEV1bSvWMo54XdSapwOsWc8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9sb2dv/c2FyY2hpdmUuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIx/LzA5L0Jvb2tpbmct/bG9nb3Muc3Zn.svg" width="150px" height="80px" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

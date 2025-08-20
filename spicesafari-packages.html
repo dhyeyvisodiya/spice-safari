@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceSafari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            background-color: transparent;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            background-color: lightgrey;
+        }
+
+        /*-----------------------------------Home and Navbar CSS Starts-----------------------------*/
+        .home {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/full-shot-travel-concept-with-landmarks_23-2149153258.jpg?size=626&ext=jpg&ga=GA1.1.1670850137.1713153926&semt=ais');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 92vh;
+        }
+
+        nav {
+            position: sticky;
+            top: 1rem;
+            display: flex;
+            z-index: 1;
+        }
+
+        /* Adjust logo image size */
+        .logo img {
+            width: 10rem;
+            height: 2.5rem;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+            backdrop-filter: blur(5px);
+            border-radius: 200px;
+            z-index: 2;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            width: 95%;
+            height: 10%;
+            margin: 0 auto;
+        }
+
+        nav {
+            position: fixed;
+            top: 1rem;
+            left: 2rem;
+            display: flex;
+            z-index: 1;
+          }
+
+        /* Menu styles */
+        .menu {
+            display: flex;
+            gap: 1.9rem;
+            list-style: none;
+            margin-left: 30rem;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .menu li a {
+            font-weight: bolder;
+            color: white;
+            padding: 0.2rem 0.09rem;
+            text-decoration: none;
+            font-size: large;
+        }
+
+        .menu li a:hover {
+            background-color: lightslategray;
+            border-radius: 5px;
+        }
+
+        .menu .submenu {
+            display: none;
+            position: absolute;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+            border-top: none;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .menu .submenu li {
+            display: block;
+        }
+
+        .menu li ul li {
+            margin: 0.5rem 0.3rem;
+        }
+
+        .submenu img {
+            border-radius: 3px;
+            margin: 0 0.3rem;
+        }
+
+        .menu li:hover .submenu {
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        /* Login/signup area styles */
+        .signup a {
+            background-color: #008ecf;
+            font-size: large;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup a:hover {
+            background-color: #fff;
+            color: #008ecf;
+        }
+
+        
+
+        .head-txt {
+            color: #FFFFFF;
+            position: absolute;
+            top: 14rem;
+            left: 4rem;
+            z-index: 1;
+        }
+
+        .head-txt span {
+            color: lightyellow;
+            font-size: 50px;
+        }
+
+        .head-txt p {
+            font-size: 20px;
+        }
+
+        .head-txt:hover {
+            color: paleturquoise;
+            transition: 0.8s ease-in;
+        }
+
+        .random-txt {
+            color: rgb(12, 97, 92);
+        }
+
+        .formsearch {
+            background-color: #fff;
+            border-radius: 20px;
+            display: flex;
+            width: 90%;
+            position: absolute;
+            gap: 4rem;
+            height: 6rem;
+            margin: 20rem 3rem;
+            padding: 0.5rem 3rem;
+            z-index: 1;
+        }
+
+        .search-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .search-1 select,
+        .search-1 input[type="date"] {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid #007bff;
+            outline: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        .number-selector {
+            display: flex;
+            align-items: center;
+        }
+
+        .number-field {
+            padding: 0.5rem 1rem;
+            width: 3rem;
+            text-align: center;
+        }
+
+        .btn-minus,
+        .btn-plus {
+            padding: 0.5rem 0.8rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+        }
+
+        .btn-plus {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-minus {
+            background-color: grey;
+            color: white;
+        }
+
+        .btn-minus:hover,
+        .btn-plus:hover {
+            opacity: 0.7;
+        }
+
+        .guests h3 {
+            margin: 0rem -2.41rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .search-button {
+            background-color: #007bff;
+            color: white;
+            margin: 1rem -1rem;
+            /*1---------------------------------------------------*/
+            height: 3rem;
+            font-size: 15px;
+            font-weight: bolder;
+            padding: 0.2rem 2.5rem;
+            /*2---------------------------------------------------*/
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .search-button:hover {
+            background-color: #0067cc;
+            /* Change button color on hover (optional) */
+        }
+
+        /*-----------------------------------Home and Navbar CSS ends-----------------------------*/
+
+        /* Main content */
+
+        .container-1 {
+            position: relative;
+        }
+
+        .video-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #myVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: -1;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .package-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            opacity: 0;
+            margin-bottom: 3rem;
+            gap: 1rem;
+            margin-left: 1rem;
+            transition: opacity 8s ease-in-out;
+        }
+
+        .package {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            opacity: 1;
+            /* Initial opacity */
+            margin-left: 2rem;/*1*************************************************/
+        }
+
+
+        .package:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .package img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .package-content {
+            padding: 20px;
+        }
+
+        .package h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .package p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .package-content ul {
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .package-content ul li {
+            flex: 1 0 45%;
+            margin-right: 5%;
+            margin-bottom: 0rem;
+        }
+
+        .package a {
+            display: block;
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .package a:hover {
+            background-color: #555;
+        }
+
+
+        .main-footer {
+            width: 100%;
+            height: 20rem;
+            background-color: black;
+        }
+
+        .main-footer-logo {
+            width: 12rem;
+            height: 3rem;
+            margin: 2rem 2rem;
+        }
+
+        .main-footer-social {
+            list-style: none;
+            margin: 6rem 0.5rem;
+            padding: 1rem;
+        }
+
+        .main-footer-social a {
+            margin: 0.4rem;
+        }
+
+        .footer-copyright {
+            letter-spacing: 0.09rem;
+        }
+
+        .main-footer-category {
+            display: flex;
+            margin-top: -19rem;
+            gap: 4rem;
+            height: 2rem;
+            justify-content: right;
+        }
+
+        .main-footer-category-1 {
+            display: grid;
+            color: #FFFFFF;
+        }
+
+        .main-footer-category-1 a,
+        .main-footer-category-2 a {
+            color: azure;
+            text-decoration: none;
+        }
+
+        .main-footer-category-1 ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            letter-spacing: 1px;
+        }
+
+        .main-footer-category-2 {
+            display: grid;
+            color: #FFFFFF;
+        }
+
+        .main-footer-category-2 ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            letter-spacing: 1px;
+        }
+
+        .main-footer-category-3 {
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-footer-category-3 img {
+            border-radius: 20px;
+        }
+
+        .main-footer-category-3box1 {
+            letter-spacing: 2rem;
+            margin: .5rem 0.5rem;
+        }
+
+        .main-footer-category-3box2 {
+            letter-spacing: 4rem;
+            margin: 1rem 3rem;
+        }
+
+        .footer-copyright {
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Home Section Starts-->
+    <section class="home">
+        <nav id="nav" class="nav-background">
+            <div class="logo">
+                <a href="index.html"><img src="images/newlogo1.png" alt="SpiceSafari"></a>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="spicesafari-about.html" target="_blank">About</a></li>
+                <li><a href="#">Destinations</a>
+                    <ul class="submenu">
+                        <li><img src="https://t4.ftcdn.net/jpg/01/63/13/31/360_F_163133107_nAlMgjPUyciTEnZCs4GF97wSTYXDAHAn.webp"
+                                width="30" height="15"><a href="ss-destinations-india.html">India</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/01/07/55/38/240_F_107553806_koihrIkK5nhOJ0xb4YCQoycuR5MRiOYJ.jpg"
+                                width="30" height="20" alt=""><a href="ss-destinations-uae.html">United Arab
+                                Emirates</a></li>
+
+                        <li><img src="https://t4.ftcdn.net/jpg/00/65/12/49/240_F_65124908_UpNHzTdQn2HNAIT8yYqybMQeGfsRmVc7.jpg"
+                                width="30" height="20" alt=""><a href="ss-destinations-usa.html">United States of
+                                America</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/35/76/34/240_F_35763485_gQJYDbJe7k4RUMwOurLBilnBmsjSPJ9w.jpg"
+                                width="30" height="20" alt=""><a href="ss-destinations-eur.html">Europe</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/01/04/47/12/240_F_104471279_8yKN8aFzt4yPsU8MdYjCXqequAPMLgSK.jpg"
+                                width="30" height="20" alt=""><a href="ss-destinations-aus.html">Australia</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/62/19/54/240_F_62195416_wfzM4Baz70OjEU54EhsCpvuQWlIhukPg.jpg"
+                                width="30" height="20" alt=""><a href="ss-destinations-jap.html">Japan</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/97/42/76/240_F_97427603_7hc4EfKcx14N755wF1qHmF0FmvCRdknb.jpg"
+                                width="30" height="20" alt=""><a href="ss-destinations-russia.html">Russia</a></li>
+                    </ul>
+                </li>
+                <li><a href="spicesafari-packages.html">Packages</a></li>
+                <li><a href="spicesafari-contact.html" target="_blank">Contact</a></li>
+                <div class="signup">
+                    <a href="spicesafari-register.html">Login</a>
+                </div>
+            </ul>
+        </nav>
+        <div id="home" class="random-txt">.</div>
+        <div class="head-txt">
+            <span><b>Discover Your Next Adventure:</b></span> <br><br>
+            <p><i>SpiceSafari's Exclusive Travel Packages Await Your Adventure. Explore, Experience, and Enrich Your
+                    Senses with Every Step!"<i></p>
+        </div>
+
+        <div class="formsearch">
+            <div class="search-1">
+                <h3>Starting From</h3>
+                <select id="startingFrom">
+                    <option value="ahmedabad">Ahmedabad</option>
+                </select>
+            </div>
+            <div class="search-1">
+                <h3>Going To</h3>
+                <select id="goingTo">
+                    <option value="goa">Goa</option>
+                    <option value="chardham">CharDham Yatra</option>
+                    <option value="dubai">Dubai</option>
+                    <option value="andaman">Andaman</option>
+                    <option value="usa">USA</option>
+                    <option value="europe">Europe</option>
+                    <option value="australia">Australia</option>
+                    <option value="japan">Japan</option>
+                    <option value="russia">Russia</option>
+                    <option value="sasan-gir">Sasan Gir</option>
+                </select>
+            </div>
+            <div class="search-1">
+                <h3>Starting Date</h3>
+                <input type="date">
+            </div>
+            <div class="search-1">
+                <h3>Rooms</h3>
+                <div class="number-selector">
+                    <button class="btn-minus">-</button>
+                    <input type="text" class="number-field" value="1">
+                    <button class="btn-plus">+</button>
+                </div>
+            </div>
+            <div class="guests" class="search-1">
+                <h3>Guests(Adults & Childs)</h3>
+                <div class="number-selector">
+                    <button class="btn-minus">-</button>
+                    <input type="text" class="number-field" value="0">
+                    <button class="btn-plus">+</button>
+                </div>
+            </div>
+            <input type="button" id="search-button" value="Search" class="search-button">
+        </div>
+
+    </section>
+    <!--Home Section Ends-->
+    <div class="container-1">
+        <video class="video-container" id="myVideo" src="images/emirates-1.mp4"></video>
+        <img class="background-image" src="images/main4.jpg" alt="image" style="display: none;">
+        <!-- playsinline muted="" preload="auto" -->
+        <div class="package-container">
+            <div class="package" id="active">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/1328/Create%20timeless%20memories%20with%20your%20partner.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="goa">
+                    <h2>Luxury Honeymoon in Goa</h2>
+                    <ul>
+                        <li>RoundTrip Flights</li>
+                        <li>Airport Transfers</li>
+                        <li>Selected Meals</li>
+                        <li>4 Star Hotel</li>
+                        <li>3 Activities</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 23,390/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=21828&fromCity=New%20Delhi&pkgType=FIT&listingClassId=12&depDate=2024-05-13&variantId=FLIGHT_753351F1">Book
+                        Now</a>
+                </div>
+            </div>
+
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/3872/Havelock_2.jpg"
+                    width="300" height="200" alt="Package 2">
+                <div class="package-content" data-startingfrom="ahmedabad" data-goingto="andaman">
+                    <h2>Best of Andaman</h2>
+                    <ul>
+                        <li>RoundTrip Flights</li>
+                        <li>Airport Transfers</li>
+                        <li>Selected Meals</li>
+                        <li>Intercity Car Transfers</li>
+                        <li>4 Star, 3 Star Hotel</li>
+                        <li>17 Activities</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 65,999/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=58765&fromCity=New%20Delhi&pkgType=FIT&listingClassId=12&depDate=2024-05-30&variantId=FLIGHT_CAR_EBF7053E">Book
+                        Now</a>
+                </div>
+            </div>
+
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/1280/Seek%20blessings%20at%20Badrinath%20Dham.jpg"
+                    width="300" height="200" alt="Package 3">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="chardham">
+                    <h2>CharDham Yatra by Helicopter</h2>
+                    <ul>
+                        <li>1N Dehradun</li>
+                        <li>1N Yamunotri</li>
+                        <li>1N Harsil</li>
+                        <li>1N Guptkashi</li>
+                        <li>1N Badrinath</li>
+                        <li>Selected Meals</li>
+                        <li>5 Star, 4 Star Hotel</li>
+                        <li>9 Activities</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 1,90,000/person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=58471&fromCity=Dehradun&pkgType=FIT&listingClassId=12&depDate=2024-09-27">Book
+                        Now</a>
+                </div>
+            </div>
+
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/3147/DTCM-Virtual%20Working%20CampaignBurj%20Al%20Arab%2015.jpg"
+                    width="300" height="200" alt="Package 4">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="dubai">
+                    <h2>Dubai Super Saver -5 Star</h2>
+                    <ul>
+                        <li>RoundTrip Flights</li>
+                        <li>Airport Transfers</li>
+                        <li>Selected Meals</li>
+                        <li>5 Star Hotel</li>
+                        <li>Visa</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 51,683/Person With Flights</h2>
+                    <h2>&#8377 20,700/Person Without Flights</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?packageIds=57071%2C57070%2C54920%2C57072%2C55222%2C53005%2C55688%2C55086&redirectionPage=listing&dest=Dubai&id=57072&listingClassId=264&depDate=2024-06-06&fromCity=New%20Delhi&variantId=FLIGHT_1DB875FA">Book
+                        Now</a>
+                </div>
+            </div>
+
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/3590/Niagara%20Falls%20-%20Illumination.jpg"
+                    width="300" height="200" alt="Package 5">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="usa">
+                    <h2>Essence of East Coast USA</h2>
+                    <ul>
+                        <li>2N New York</li>
+                        <li>1N Philadelphia</li>
+                        <li>1N Washington DC</li>
+                        <li>2N Niagara falls NY</li>
+                        <li>RoundTrip Flights</li>
+                        <li>2 Activities</li>
+                        <li>Selected Meals</li>
+                        <li>3 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 3,00,500/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=53265&fromCity=Ahmedabad&pkgType=FIT&listingClassId=2&depDate=2024-05-10&searchDate=2024-05-06&glp=true&room=2%2C0%2C0%2C0%2C%2C%2C&variantId=FLIGHT_603EF49D">Book
+                        Now</a>
+                </div>
+            </div>
+
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/3640/Las-Vegas-Strip_1.jpg"
+                    width="300" height="200" alt="Package 6">
+                <div class="package-content" data-startingfrom="ahmedabad" data-goingto="usa">
+                    <h2>Panorama East to West USA - Indian Group Departure </h2>
+                    <ul>
+                        <li>2N Las Vegas</li>
+                        <li>2N New York</li>
+                        <li>1N Harrisburg</li>
+                        <li>1N Washington DC</li>
+                        <li>2N NiagaraFalls NY</li>
+                        <li>1N Los Angeles CA</li>
+                        <li>1N Frenso</li>
+                        <li>2N San Francisco CA</li>
+                        <li>RoundTrip Flights</li>
+                        <li>12 Activities</li>
+                        <li>Selected Meals</li>
+                        <li>4 Star, 3 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 5,53,000/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=54915&fromCity=Ahmedabad&pkgType=FIT&listingClassId=4&depDate=2024-06-06&searchDate=2024-06-04&glp=true&room=2%2C0%2C0%2C0%2C%2C%2C&variantId=FLIGHT_F65F259F">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/694/central-plaza-santa-claus-village-rovaniemi-lapland-finland%20(1).jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  id="1apac2bkag3ces" data-startingfrom="ahmedabad" data-goingto="europe">
+                    <h2>Scandinavia Winter Wonderland Group Departure </h2>
+                    <ul>
+                        <li>2N Rovaniemi</li>
+                        <li>1N Helsinki</li>
+                        <li>1N Kiruna</li>
+                        <li>2N Tromso</li>
+                        <li>1N Oslo</li>
+                        <li>RoundTrip Flights</li>
+                        <li>Visa Assistance</li>
+                        <li>Selected Meals</li>
+                        <li>4 Star, 3 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 4,25,000/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=57279&fromCity=New%20Delhi&pkgType=FIT&listingClassId=4&depDate=2025-01-11&variantId=FLIGHT_F179E180">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/1709/Venice-4.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="europe">
+                    <h2>Romantic Italy Escape</h2>
+                    <ul>
+                        <li>3N Naples</li>
+                        <li>2N Rome</li>
+                        <li>2N Venice</li>
+                        <li>2N Florence</li>
+                        <li>3N Milan</li>
+                        <li>RoundTrip Flights</li>
+                        <li>Visa Assistance</li>
+                        <li>Selected Meals</li>
+                        <li>8 Activities</li>
+                        <li>3 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 2,43,000/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=53800&fromCity=New%20Delhi&pkgType=FIT&listingClassId=2&depDate=2024-06-10&variantId=FLIGHT_AB00CE9">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/124/Apostles-Aerial-View.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="australia">
+                    <h2>Australia - Land Of Experinces</h2>
+                    <ul>
+                        <li>3N Melbourne</li>
+                        <li>3N Gold Coast</li>
+                        <li>3N Sydney</li>
+                        <li>Airport Transfers</li>
+                        <li>Visa</li>
+                        <li>RoundTrip Flights</li>
+                        <li>Intercity Flight Transfers</li>
+                        <li>Selected Meals</li>
+                        <li>5 Activities</li>
+                        <li>3 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 2,34,000/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=53755&fromCity=New%20Delhi&pkgType=FIT&listingClassId=2&depDate=2024-06-05&variantId=FLIGHT_A545DBB6">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/61/Hunter%20Valley%20view%20from%20Mount%20View%20Road.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="australia">
+                    <h2>Soulmate Special Australian Holiday</h2>
+                    <ul>
+                        <li>3N Melbourne</li>
+                        <li>3N Gold Coast</li>
+                        <li>3N Sydney</li>
+                        <li>3N Cairns</li>
+                        <li>2N Canberra</li>
+                        <li>Airport Transfers</li>
+                        <li>Visa</li>
+                        <li>Selected Meals</li>
+                        <li>16 Activities</li>
+                        <li>3 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 2,83,870/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=43822&fromCity=New%20Delhi&pkgType=FIT&listingClassId=2&depDate=2024-05-16">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/1921/Mount%20Fuji%20and%20Chureito%20Peace.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="japan">
+                    <h2>Sakura Serenity Tour - Japan</h2>
+                    <ul>
+                        <li>4N Tokyo</li>
+                        <li>2N Kyoto</li>
+                        <li>3N Osaka</li>
+                        <li>RoundTrip Flights</li>
+                        <li>Airport Transfers</li>
+                        <li>Visa</li>
+                        <li>Selected Meals</li>
+                        <li>3 Activities</li>
+                        <li>3 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 1,50,700/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?fromSearchWidget=true&searchDep=Japan&dest=Japan&destValue=Japan&depCity=Ahmedabad&initd=searchwidget_landing_Japan_notheme&dateSearched=02%2F07%2F2024&glp=true&pdo=false&rooms=2%2C0%2C0%2C0%2C%2C%2C&affiliate=MMT&id=57832&listingClassId=2&depDate=2024-07-02&fromCity=Ahmedabad&variantId=FLIGHT_8771928B&room=2%2C0%2C0%2C0%2C%2C%2C&searchDate=2024-07-02">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/1921/Sensoji%20Temple.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="japan">
+                    <h2>Immersive Japan Adventure- With Hakone Stay</h2>
+                    <ul>
+                        <li>3N Tokyo</li>
+                        <li>2N Kyoto</li>
+                        <li>2N Osaka</li>
+                        <li>1N Hakone</li>
+                        <li>RoundTrip Flights</li>
+                        <li>Airport Transfers</li>
+                        <li>Visa</li>
+                        <li>Selected Meals</li>
+                        <li>1 Activity</li>
+                        <li>3 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 1,48,900/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=58360&fromCity=Ahmedabad&pkgType=FIT&listingClassId=2&depDate=2024-07-02&searchDate=2024-07-02&glp=true&room=2%2C0%2C0%2C0%2C%2C%2C&variantId=FLIGHT_8771928B">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/2494/St-Basils-Cathedral-Moscow.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="russia">
+                    <h2>Discover Russia</h2>
+                    <ul>
+                        <li>3N Moscow</li>
+                        <li>2N St. Petersburg</li>
+                        <li>Visa</li>
+                        <li>Selected Meals</li>
+                        <li>4 Activities</li>
+                        <li>4 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 2,02,400/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=58567&fromCity=Ahmedabad&pkgType=FIT&listingClassId=4&depDate=2024-07-10&searchDate=2024-07-10&glp=true&room=2%2C0%2C0%2C0%2C%2C%2C&variantId=FLIGHT_9DD92781">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/2494/Heart%20of%20Moscow.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="russia">
+                    <h2>Explore Russia</h2>
+                    <ul>
+                        <li>4N Moscow</li>
+                        <li>Visa</li>
+                        <li>Selected Meals</li>
+                        <li>3 Activities</li>
+                        <li>4 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 1,66,800/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=58573&fromCity=Ahmedabad&pkgType=FIT&listingClassId=4&depDate=2024-07-10&searchDate=2024-07-10&glp=true&room=2%2C0%2C0%2C0%2C%2C%2C&variantId=FLIGHT_A12CC0CA">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/3872/Havelock_2.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content"  data-startingfrom="ahmedabad" data-goingto="andaman">
+                    <h2>Romantic Holiday in the Andamans</h2>
+                    <ul>
+                        <li>2N Port Blair</li>
+                        <li>2N HaveLock</li>
+                        <li>1N Neil Island</li>
+                        <li>2N Port Blair</li>
+                        <li>Airport Transfers</li>
+                        <li>19 Activities</li>
+                        <li>3 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 56,900/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=34075&fromCity=New%20Delhi&pkgType=FIT&listingClassId=8&mcat=Honeymoon&depDate=2024-06-12&variantId=FLIGHT_CAR_FDDD812">Book
+                        Now</a>
+                </div>
+            </div>
+            <div class="package">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/3793/Asian%20Lion,%20Gir%20Forest%20National%20Park.jpg"
+                    width="300" height="200" alt="Package 1">
+                <div class="package-content" data-startingfrom="ahmedabad"  data-goingto="sasan-gir">
+                    <h2>Epic Sasan Gir National Park- Wildlife Special</h2>
+                    <ul>
+                        <li>2N Sasan Gir</li>
+                        <li>Selected Meals</li>
+                        <li>5 Activities</li>
+                        <li>4 Star Hotel</li>
+                    </ul>
+                    <p>
+                    <h2>&#8377 20,999/Person</h2>
+                    </p>
+                    <a
+                        href="https://holidayz.makemytrip.com/holidays/india/package?id=57632&fromCity=Ahmedabad&pkgType=FIT&story=true&listingClassId=8&depDate=2024-05-19&variantId=CAR_DC0E1F8A">Book
+                        Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="main-footer" id="mainFooter">
+            <div class="main-footer-content">
+                <a href="index.html"><img class="main-footer-logo" src="images/newlogo1.png" height="60rem"
+                        width="60rem" alt=""></a>
+                <div class="main-footer-social">
+                    <a class="social-1" href="https://instagram.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/174/174855.png" width="35px" height="35px"
+                            alt=""></a>
+                    <a class="social-2" href="https://linkedin.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="35px" height="35px"
+                            alt=""></a>
+                    <a class="social-3" href="https://wa.me/+919429984468"><img
+                            src="https://cdn-icons-png.flaticon.com/128/3536/3536445.png" width="35px" height="35px"
+                            alt=""></a>
+                    <a class="social-4" href="https://x.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/733/733579.png" width="35px" height="35px"
+                            alt=""></a>
+                    <div class="footer-copyright">
+                        <h4>&copy 2024 | All Rights Reserved | SpiceSafari <br>
+                            Managed by: Krish Thakker , Sarthak Tandel and Dhyey Visodiya</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer-category">
+            <div class="main-footer-category-1">
+                <h3>About SpiceSafari</h3> <br>
+                <ul>
+                    <li><a href="spicesafari-about.html">About Us</a></li>
+                    <li><a href="">Write to Us</a></li>
+                    <li><a href="">Terms & Conditions</a></li>
+                    <li><a href="">Policies</a></li>
+                    <li><a href="spicesafari-contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="main-footer-category-2">
+                <h3>Category</h3> <br>
+                <ul>
+                    <li><a href="spicesafari-packages.html">Packages</a></li>
+                    <li><a href="">Bus Tickets</a></li>
+                    <li><a href="">Flight Tickets</a></li>
+                    <li><a href="">Train Tickets</a></li>
+                    <li><a href="">Hotel Booking</a></li>
+                    <li><a href="ss-destinations-india.html">Destinations</a></li>
+                </ul>
+            </div>
+            <div class="main-footer-category-3">
+                <h2>Our Partners: </h2> <br>
+                <div class="main-footer-category-3box1">
+                    <a href="https://makemytrip.com"><img
+                            src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png" width="150px"
+                            height="50px" alt=""></a>
+
+                    <a class="main-footer-category-3-img-1" href="https://gsrtc.in"><img
+                            src="https://imgs.search.brave.com/V5aQ-gF1n6cCe1U0LdXvVJ9cNCA6SbxMNlnfT3NWaZk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L2xv/Z29wZWRpYS9pbWFn/ZXMvYi9iMS9HU1JU/Qy5wbmcvcmV2aXNp/b24vbGF0ZXN0L3Nj/YWxlLXRvLXdpZHRo/LWRvd24vMjQwP2Ni/PTIwMjAwNTIxMDYw/MTQ1.jpeg"
+                            width="150px" height="90px"></a>
+                </div>
+                <div class="main-footer-category-3box2">
+                    <a class="main-footer-category-3-img-2" href="https://irctc.co.in"><img
+                            src="https://www.irctc.co.in/nget/assets/images/logo.png" alt=""></a>
+
+                    <a class="main-footer-category-3-img-3" href="https://booking.com"><img
+                            src="https://imgs.search.brave.com/faUcO868uF89TBA3AeOsyEV1bSvWMo54XdSapwOsWc8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9sb2dv/c2FyY2hpdmUuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIx/LzA5L0Jvb2tpbmct/bG9nb3Muc3Zn.svg"
+                            width="150px" height="80px" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/2b90a45c2f.js" crossorigin="anonymous"></script>
+    <script>
+        // Video playback and package display
+        const video = document.getElementById('myVideo');
+        const image = document.querySelector('.background-image');
+        const packageContainer = document.querySelector('.package-container');
+
+        if (video && packageContainer) {
+            video.addEventListener('canplaythrough', function () {
+                video.play();
+                packageContainer.style.opacity = 1;
+            });
+
+            video.addEventListener('ended', function () {
+                video.style.display = 'none'; // Hide the video
+                image.style.display = 'block'; // Show the image
+                packageContainer.style.opacity = 1;
+            });
+        }
+
+        // Number field increment/decrement
+        const buttons = document.querySelectorAll('.btn-minus, .btn-plus');
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                const numberField = this.parentNode.querySelector('.number-field');
+                handleNumberFieldChange(this, numberField);
+            });
+        });
+
+        function handleNumberFieldChange(button, numberField) {
+            let currentValue = parseInt(numberField.value) || 0;
+            if (button.classList.contains('btn-minus')) {
+                currentValue = Math.max(currentValue - 1, 0);
+            } else {
+                currentValue++;
+            }
+            numberField.value = currentValue;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchButton = document.querySelector(".search-button");
+
+            if (video) {
+                video.addEventListener('ended', function () {
+                    const homeSection = document.getElementById('home');
+                    if (homeSection) {
+                        homeSection.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            }
+
+            if (searchButton) {
+                searchButton.addEventListener('click', function () {
+                    const selectedPackage = document.querySelector(".package-container .package[style='display: block;']");
+                    if (selectedPackage) {
+                        selectedPackage.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            }
+
+            searchButton.addEventListener("click", function () {
+                filterPackages();
+                const selectedPackage = document.querySelector(".package-container .package[style='display: block;']");
+                if (selectedPackage) {
+                    selectedPackage.scrollIntoView({ behavior: "smooth" });
+                }
+                const video = document.getElementById('myVideo');
+                if (video) {
+                    video.style.display = "none";
+                }
+
+                // Show the background image
+                const backgroundImage = document.querySelector('.background-image');
+                if (backgroundImage) {
+                    backgroundImage.style.display = "block";
+                }
+                adjustBodyPadding();
+            });
+        });
+
+        function filterPackages() {
+            const startingFrom = document.getElementById("startingFrom").value;
+            const goingTo = document.getElementById("goingTo").value;
+            const packageContainers = document.querySelectorAll(".package");
+
+            packageContainers.forEach(function (packageContainer) {
+                const packageStartingFrom = packageContainer.querySelector(".package-content").getAttribute("data-startingfrom");
+                const packageGoingTo = packageContainer.querySelector(".package-content").getAttribute("data-goingto");
+
+                if (packageStartingFrom === startingFrom && packageGoingTo === goingTo) {
+                    packageContainer.style.display = "block";
+                } else {
+                    packageContainer.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

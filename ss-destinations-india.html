@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceSafari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            background-color: transparent;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            height: 1800px;
+            background-color: lightsteelblue;
+        }
+
+        /* Adjust styles for the home section as needed */
+        .home {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://t4.ftcdn.net/jpg/01/63/13/31/360_F_163133107_nAlMgjPUyciTEnZCs4GF97wSTYXDAHAn.webp');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 99vh;
+            background-position: top;
+        }
+
+        nav {
+            position: sticky;
+            top: 1rem;
+            display: flex;
+            z-index: 1;
+        }
+
+        /* Adjust logo image size */
+        .logo img {
+            width: 10rem;
+            height: 2.5rem;
+            position: relative;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+            backdrop-filter: blur(5px);
+            border-radius: 200px;
+            z-index: 2;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            width: 95%;
+            height: 10%;
+            margin: 0 auto;
+          }
+          
+          /* Menu styles */
+          .menu {
+            display: flex;
+            gap: 1.9rem;
+            list-style: none;
+            margin-left: 30rem;
+          }
+          
+          .menu li {
+            display: inline-block;
+          }
+          
+          .menu li a {
+            font-weight: bolder;
+            color: white;
+            padding: 0.2rem 0.09rem;
+            text-decoration: none;
+            font-size: large;
+          }
+          
+          .menu li a:hover {
+            background-color: lightslategray;
+            border-radius: 5px;
+          }
+          
+          .menu .submenu {
+            display: none;
+            position: absolute;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+            border-top: none;
+            border-radius: 10px;
+            z-index: 1;
+          }
+          
+          .menu .submenu li {
+            display: block;
+          }
+          
+          .menu li ul li {
+            margin: 0.5rem 0.3rem;
+          }
+          
+          .submenu img {
+            border-radius: 3px;
+            margin: 0 0.3rem;
+          }
+          
+          .menu li:hover .submenu {
+            display: block;
+            margin-top: 0.2rem;
+          }
+          
+          /* Login/signup area styles */
+          .signup a {
+            background-color: #008ecf;
+            font-size: large;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+          }
+          
+          .signup a:hover {
+            background-color: #fff;
+            color: #008ecf;
+          }
+          
+          .head-txt {
+            color: #CCCCCC;
+            letter-spacing: 0px;
+            position: absolute;
+            top: 25rem;
+            left: 2rem;
+            z-index: 1; 
+          }
+          .head-txt span {
+            color: lightyellow;
+            font-size: 40px;
+          }
+          
+          .head-txt p {
+            font-size: 18px;
+          }
+          
+          .head-txt:hover {
+            color: #FFFFFF;
+            transition: 1s ease-in;
+          }
+          
+        .explorebtn{
+            background-color: white;
+            margin: 0rem;
+            border-radius: 15px;
+            padding: .6rem 1rem;
+        }
+        .explore a{
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+        .explore a:hover{
+            color: white;
+            background-color: black;
+        }
+        .explore::after{
+            transition: 0.3s ease;
+        }
+        .namecont{
+            padding: 1rem 3rem;/*1---------------------------------------------------*/
+        }
+        .destination {
+            margin-left: 2.5rem; /*2---------------------------------------------------*/
+            background-color: aliceblue;
+            border-radius: 12px;
+            width: 25rem;
+            height: 21rem;        
+            position: relative;
+        }
+        .destination:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 10px 10px 2px gray ;
+        }
+        .destinationcont{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            row-gap: 3rem;
+        }
+        .destination img {
+            width: 25rem;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 11.4rem;
+            border-top-right-radius: 12px;
+            border-top-left-radius: 12px;
+        }
+        .destination h2 {
+            text-align: center;
+            text-wrap: wrap;
+        }
+        .destination p {
+            text-align: justify;
+            text-wrap: wrap;
+            padding: 0.2rem 0.5rem;
+        }
+        .book-button {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: white;
+            margin: 2rem 7rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        .bookbtn{
+            margin: 0.5rem 1rem;
+        }
+        .destinationcont a{
+            margin: 0;
+        }
+        .con {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+        .a1 {
+            font-size: 30px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 25px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+        }
+        .a1:hover {
+            background-color: #0056b3;
+        }
+        .book-button:hover{
+            background-color: darkorchid;
+        }
+        .main-footer {
+            width: 100%;
+            height: 20rem;
+            background-color: black;
+        }
+        
+        .main-footer-logo {
+            width: 12rem;
+            height: 3rem;
+            margin: 2rem 2rem;
+        }
+        
+        .main-footer-social {
+            list-style: none;
+            margin: 6rem 0.5rem;
+            padding: 1rem;
+        }
+        .main-footer-social a{
+            margin: 0.4rem;
+        }
+        .footer-copyright{
+            letter-spacing: 0.09rem;
+        }
+        
+        .main-footer-category {
+            display: flex;
+            margin-top: -19rem;
+            gap: 4rem;
+            height: 2rem;
+            justify-content: right;
+        }
+        
+        .main-footer-category-1 {
+            display: grid;
+            color: #FFFFFF;
+        }
+        
+        .main-footer-category-1 a,
+        .main-footer-category-2 a {
+            color: azure;
+            text-decoration: none;
+        }
+        
+        .main-footer-category-1 ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            letter-spacing: 1px;
+        }
+        
+        .main-footer-category-2 {
+            display: grid;
+            color: #FFFFFF;
+        }
+        
+        .main-footer-category-2 ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            letter-spacing: 1px;
+        }
+        
+        .main-footer-category-3 {
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+        }
+        .main-footer-category-3 img{
+            border-radius: 20px;
+        }
+        
+        .main-footer-category-3box1{
+            letter-spacing: 2rem;
+            margin: .5rem 0.5rem;
+        }
+        .main-footer-category-3box2{
+            letter-spacing: 4rem;
+            margin: 1rem 3rem;
+        }
+        
+        .footer-copyright {
+            color: #FFFFFF;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--Home Section Starts-->
+    <section class="home">
+        <nav class="nav-background">
+            <div class="logo">
+                <img src="images/newlogo1.png" alt="SpiceSafari">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="spicesafari-about.html">About</a></li>
+                <li><a href="#">Destinations</a>
+                    <ul class="submenu">
+                        <li><img src="https://t4.ftcdn.net/jpg/01/63/13/31/360_F_163133107_nAlMgjPUyciTEnZCs4GF97wSTYXDAHAn.webp" width="30" height="15" ><a href="ss-destinations-india.html">India</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/01/07/55/38/240_F_107553806_koihrIkK5nhOJ0xb4YCQoycuR5MRiOYJ.jpg" width="30" height="20" alt=""><a href="ss-destinations-uae.html" >United Arab Emirates</a></li>
+
+                        <li><img src="https://t4.ftcdn.net/jpg/00/65/12/49/240_F_65124908_UpNHzTdQn2HNAIT8yYqybMQeGfsRmVc7.jpg" width="30" height="20" alt=""><a href="ss-destinations-usa.html">United States of America</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/35/76/34/240_F_35763485_gQJYDbJe7k4RUMwOurLBilnBmsjSPJ9w.jpg" width="30" height="20" alt=""><a href="ss-destinations-eur.html">Europe</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/01/04/47/12/240_F_104471279_8yKN8aFzt4yPsU8MdYjCXqequAPMLgSK.jpg" width="30" height="20" alt=""><a href="ss-destinations-aus.html">Australia</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/62/19/54/240_F_62195416_wfzM4Baz70OjEU54EhsCpvuQWlIhukPg.jpg" width="30" height="20" alt=""><a href="ss-destinations-jap.html">Japan</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/97/42/76/240_F_97427603_7hc4EfKcx14N755wF1qHmF0FmvCRdknb.jpg" width="30" height="20" alt=""><a href="ss-destinations-russia.html">Russia</a></li>
+                    </ul>
+                </li>
+                <li><a href="spicesafari-packages.html#1apac2bkag3ces">Packages</a></li>
+                <li><a href="spicesafari-contact.html">Contact</a></li>
+                <div class="signup">
+                    <a href="spicesafari-register.html">Login</a>
+                </div>
+            </ul>
+        </nav>
+        
+        <div class="head-txt">
+            <div class="head-txt-txt">
+                <span>Explore Popular Destinations of India</span><br><br>
+                <p>India, officially known as the Republic of India, is a country located in South Asia. It is the seventh-largest country by land area and the second-most populous country, with over 1.3 billion people.</p>
+            </div> <br>
+            <div class="explore">
+                <a class="explorebtn" href="#name">Explore Now</a>
+            </div>
+        </div>
+    </section>
+    <!--Home Section Ends-->
+
+    <!--Destination Section Starts-->
+    <section>
+        <div class="namecont">
+            <div class="cont">
+                <ul id="name">
+                    <li><a class="a1" href="ss-destinations-eur.html">Europe</a></li>
+                    <li><a class="a1" href="ss-destinations-uae.html">UAE</a></li>
+                    <li><a class="a1" href="ss-destinations-usa.html">USA</a></li>
+                    <li><a class="a1" href="ss-destinations-india.html">India</a></li>
+                    <li><a class="a1" href="ss-destinations-aus.html">Australia</a></li>
+                    <li><a class="a1" href="ss-destinations-jap.html">Japan</a></li>
+                    <li><a class="a1" href="ss-destinations-russia.html">Russia</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="destinationcont">
+            <div class="destination" id="taj">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1200px-Taj_Mahal_%28Edited%29.jpeg"
+                    alt="Taj Mahal - A symbol of love">
+                <h2>Taj Mahal</h2>
+                <p>The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. </p>
+                <div class="bookbtn">
+                    <a href="https://en.wikipedia.org/wiki/Taj_Mahal" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="goa">
+                <img src="https://imgs.search.brave.com/cPJQNuiCzYWc32h8H1UOJR6OC3ShXpCIAWru5O1_1cU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTcx/MTQ0NTM4L3Bob3Rv/L2dvYS1wYWxvbGVt/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz14cjlvaE56QmIw/cEx4aDJRbUJVWlFU/XzZTNWY0R2Z6aldV/ZGhLNGZmZi1rPQ" alt="Beach in Goa">
+                <h2>Goa</h2>
+                <p>Goa is a state in western India with coastlines stretching along the Arabian Sea. Renowned for its beaches, places of worship, and world heritage architecture.</p>
+                <div class="bookbtn">
+                    <a href="https://en.wikipedia.org/wiki/Goa" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="shimla">
+                <img src="https://assets.gqindia.com/photos/65bcc344caed8616a56dc032/master/pass/places-in-India-to-experience-snowfall.jpg"
+                    alt="Snowfall in Shimla">
+                <h2>Shimla</h2>
+                <p>Shimla is the capital city of the Indian state of Himachal Pradesh, located in northern India.</p>
+                <div class="bookbtn">
+                    <a href="https://en.wikipedia.org/wiki/Shimla" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="somnath">
+                <img src="https://myfayth.com/wp-content/uploads/2021/12/Somnath-Temple-architecture.png"
+                    alt="Somnath Temple">
+                <h2>Somnath</h2>
+                <p>Somnath is a town located near Veraval in Saurashtra, on the western coast of Gujarat, India. It is an important pilgrimage and tourist spot of Gujarat. </p>
+                <div class="bookbtn">
+                    <a href="https://en.wikipedia.org/wiki/Somnath" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="statue-of-unity">
+                <img src="https://visitsou.com/wp-content/uploads/15-The-Statue-of-Unity-A-Tribute-to-Unity-and-Heritage.jpg"
+                    alt="Statue of Unity">
+                <h2>Statue of Unity</h2>
+                <p>The Statue of Unity is a colossal statue of Indian statesman and independence activist Vallabhbhai Patel, who was the first Deputy Prime Minister and Home Minister of independent India.</p>
+                <div class="bookbtn">
+                    <a href="https://en.wikipedia.org/wiki/Statue_of_Unity" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="leh-ladakh">
+                <img src="https://thecrazymountaineers.com/images/packages/45/gallery/Leh_Ladakh_Road_trip_2.jpg"
+                    alt="Leh Ladakh">
+                <h2>Leh Ladakh</h2>
+                <p>Leh Ladakh is a region in the Indian state of Jammu and Kashmir that currently extends from the Kunlun mountain range to the main Great Himalayas to the south.</p>
+                <div class="bookbtn">
+                    <a href="https://en.wikipedia.org/wiki/Ladakh" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="andaman-nicobar">
+                <img src="https://images.squarespace-cdn.com/content/v1/5a74702ce45a7cd601df944b/39f3727a-9024-4b7f-8560-dd8061cde8c0/INTRO+TO+ANDAMAN+NICOBAR.jpg"
+                    alt="Andaman and Nicobar Islands">
+                <h2>Andaman and Nicobar Islands</h2>
+                <p>The Andaman and Nicobar Islands are a group of islands at the southeastern edge of the Bay of Bengal.</p>
+                <div class="bookbtn">
+                    <a href="https://en.wikipedia.org/wiki/Andaman_and_Nicobar_Islands" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="ajanta-ellora">
+                <img src="https://miro.medium.com/v2/resize:fit:1024/1*5PMaqu6-3JgLfc46ND2sVQ.jpeg"
+                    alt="Ajanta and Ellora Caves">
+                <h2>Ajanta and Ellora Caves</h2>
+                <p>The Ajanta and Ellora Caves are rock-cut cave complexes located near Aurangabad in Maharashtra, India. The caves feature Buddhist, Hindu, and dating from the 2nd century BCE to the 10th century CE.</p>
+                <div class="bookbtn">
+                    <a href="https://en.wikipedia.org/wiki/Ajanta_Caves" class="book-button">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </section> <br><br>
+    <!--Destination Section Ends-->
+    <footer>
+        <div class="main-footer">
+            <div class="main-footer-content">
+                <a href="index.html"><img class="main-footer-logo" src="images/newlogo1.png" height="60rem" width="60rem" alt=""></a>
+                <div class="main-footer-social">
+                    <a class="social-1" href="https://instagram.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/174/174855.png" width="35px" height="35px" alt=""></a>
+                    <a class="social-2" href="https://linkedin.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="35px" height="35px" alt=""></a>
+                    <a class="social-3" href="https://wa.me/+919429984468"><img
+                            src="https://cdn-icons-png.flaticon.com/128/3536/3536445.png" width="35px" height="35px" alt=""></a>
+                    <a class="social-4" href="https://x.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/733/733579.png" width="35px" height="35px" alt=""></a>
+                    <div class="footer-copyright">
+                    <h4>&copy 2024 | All Rights Reserved | SpiceSafari <br>
+                    Managed by: Krish Thakker , Sarthak Tandel and Dhyey Visodiya</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer-category">
+            <div class="main-footer-category-1">
+                <h3>About SpiceSafari</h3> <br>
+                <ul>
+                    <li><a href="spicesafari-about.html">About Us</a></li>
+                    <li><a href="">Write to Us</a></li>
+                    <li><a href="">Terms & Conditions</a></li>
+                    <li><a href="">Policies</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="main-footer-category-2">
+                <h3>Category</h3> <br>
+                <ul>
+                    <li><a href="">Packages</a></li>
+                    <li><a href="">Bus Tickets</a></li>
+                    <li><a href="">Flight Tickets</a></li>
+                    <li><a href="">Train Tickets</a></li>
+                    <li><a href="">Hotel Booking</a></li>
+                    <li><a href="">Destinations</a></li>
+                </ul>
+            </div>
+            <div class="main-footer-category-3">
+                <h2>Our Partners: </h2> <br>
+                <div class="main-footer-category-3box1">
+                    <a href="https://makemytrip.com"><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png" width="150px" height="50px" alt=""></a>
+
+                    <a class="main-footer-category-3-img-1" href="https://gsrtc.in"><img src="https://imgs.search.brave.com/V5aQ-gF1n6cCe1U0LdXvVJ9cNCA6SbxMNlnfT3NWaZk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L2xv/Z29wZWRpYS9pbWFn/ZXMvYi9iMS9HU1JU/Qy5wbmcvcmV2aXNp/b24vbGF0ZXN0L3Nj/YWxlLXRvLXdpZHRo/LWRvd24vMjQwP2Ni/PTIwMjAwNTIxMDYw/MTQ1.jpeg" width="150px" height="90px"></a>
+                </div>
+                <div class="main-footer-category-3box2">
+                    <a class="main-footer-category-3-img-2" href="https://irctc.co.in"><img src="https://www.irctc.co.in/nget/assets/images/logo.png" alt=""></a>
+
+                    <a class="main-footer-category-3-img-3" href="https://booking.com"><img src="https://imgs.search.brave.com/faUcO868uF89TBA3AeOsyEV1bSvWMo54XdSapwOsWc8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9sb2dv/c2FyY2hpdmUuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIx/LzA5L0Jvb2tpbmct/bG9nb3Muc3Zn.svg" width="150px" height="80px" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

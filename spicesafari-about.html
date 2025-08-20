@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpiceSafari | About</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+      text-transform: capitalize;
+      background-color: transparent;
+    }
+
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      height: 1800px;
+      background-color: lightgrey;
+    }
+
+    /*-----------------------------------Home and Navbar CSS Starts-----------------------------*/
+    .home {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('https://imgs.search.brave.com/ndniHXBkRvOdtVvcxVVVI4mVfS8ioF9k5qScxV_Px88/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzUwLzYwLzE4/LzM2MF9GXzI1MDYw/MTg1NF9kaGNLQVdF/N2NWYm8yZVU2VlA5/M3AzaFlodzNVVmN5/eS5qcGc');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      height: 92vh;
+      background-position: center;
+      background-size: cover;
+      animation: slideBackground 11s infinite alternate;
+    }
+
+    @keyframes slideBackground {
+      0% {
+        background-image: url('images/about2.jpg');
+      }
+
+      25% {
+        background-image: url('images/about1.jpg');
+      }
+
+      50% {
+        background-image: url('images/about3.jpg');
+      }
+
+      75% {
+        background-image: url('images/about4.jpg');
+      }
+
+      100% {
+        background-image: url('images/about5.jpg');
+      }
+    }
+
+    nav {
+      position: fixed;
+      top: 1rem;
+      left: 2rem;
+      display: flex;
+      z-index: 1;
+    }
+
+    /* Adjust logo image size */
+    .logo img {
+      width: 10rem;
+      height: 2.5rem;
+      position: relative;
+    }
+
+    /* Navigation bar styles */
+    nav {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+      backdrop-filter: blur(5px);
+      border-radius: 200px;
+      z-index: 2;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      width: 95%;
+      height: 10%;
+      margin: 0 auto;
+    }
+
+    .nav-background.scrolled {
+      background-color: #333;
+      border-radius: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Menu styles */
+    .menu {
+      display: flex;
+      gap: 1.9rem;
+      list-style: none;
+      margin-left: 30rem;
+    }
+
+    .menu li {
+      display: inline-block;
+    }
+
+    .menu li a {
+      font-weight: bolder;
+      color: white;
+      padding: 0.2rem 0.09rem;
+      text-decoration: none;
+      font-size: large;
+    }
+
+    .menu li a:hover {
+      background-color: lightslategray;
+      border-radius: 5px;
+    }
+
+    .menu .submenu {
+      display: none;
+      position: absolute;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+      border-top: none;
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    .menu .submenu li {
+      display: block;
+    }
+
+    .menu li ul li {
+      margin: 0.5rem 0.3rem;
+    }
+
+    .submenu img {
+      border-radius: 3px;
+      margin: 0 0.3rem;
+    }
+
+    .menu li:hover .submenu {
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    /* Login/signup area styles */
+    .signup a {
+      background-color: #008ecf;
+      font-size: large;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .signup a:hover {
+      background-color: #fff;
+      color: #008ecf;
+    }
+
+    .head-txt {
+      color: #CCCCCC;
+      letter-spacing: 0.2rem;
+      position: absolute;
+      top: 25rem;
+      left: 2rem;
+      z-index: 1;
+    }
+
+    .head-txt span {
+      color: lightyellow;
+      font-size: 50px;
+    }
+
+    .head-txt p {
+      font-size: 18px;
+    }
+
+    .head-txt:hover {
+      color: #FFFFFF;
+      transition: 1s ease-in;
+    }
+    .head-txt a {
+      background-color: lightgreen;
+      text-decoration: none;
+      color: black;
+      padding: 1rem 5rem;
+      margin: 5rem;
+      border-radius: 15px;
+      font-size: large;
+    }
+
+    .head-txt a:hover {
+      background-color: gold;
+    }
+
+
+    h1 {
+      font-weight: bold;
+      margin: 0;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 100;
+      line-height: 20px;
+      letter-spacing: .5px;
+      margin: 20px 0 30px;
+    }
+
+    span {
+      font-size: 12px;
+    }
+
+    a {
+      color: #0e263d;
+      font-size: 14px;
+      text-decoration: none;
+      margin: 15px 0;
+    }
+
+    .about-txt {
+      margin: 3rem 20rem;
+      font-size: 33px;
+      font-weight: bolder;
+      color: black;
+
+    }
+
+    .about-txt-box {
+      background-color: indianred;
+      border-radius: 5px;
+      width: 12%;
+      margin: 0.5rem;
+    }
+
+    .about-txt-1 p {
+      text-rendering: optimizeLegibility;
+      line-height: 1.625rem;
+      font-weight: 400;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .manage {
+      color: rgb(0, 0, 0);
+      margin: 4rem;
+    }
+
+    .per1 img {
+      border-radius: 10px;
+    }
+
+    .per1 {
+      font-size: 1.2rem;
+      margin: 1.5rem;
+      display: flex;
+    }
+
+    .p1 {
+      margin: 35px;
+    }
+
+    .p1 p {
+      font-size: 18px;
+    }
+
+
+    /*-----------------------------------Home and Navbar CSS ends-----------------------------*/
+    .main-footer {
+      width: 100%;
+      height: 20rem;
+      background-color: black;
+    }
+
+    .main-footer-logo {
+      width: 12rem;
+      height: 3rem;
+      margin: 2rem 2rem;
+    }
+
+    .main-footer-social {
+      list-style: none;
+      margin: 6rem 0.5rem;
+      padding: 1rem;
+    }
+
+    .main-footer-social a {
+      margin: 0.4rem;
+    }
+
+    .footer-copyright {
+      letter-spacing: 0.09rem;
+    }
+
+    .main-footer-category {
+      display: flex;
+      margin-top: -19rem;
+      gap: 4rem;
+      height: 2rem;
+      justify-content: right;
+    }
+
+    .main-footer-category-1 {
+      display: grid;
+      color: #FFFFFF;
+    }
+
+    .main-footer-category-1 a,
+    .main-footer-category-2 a {
+      color: azure;
+      text-decoration: none;
+    }
+
+    .main-footer-category-1 ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      list-style: none;
+      letter-spacing: 1px;
+    }
+
+    .main-footer-category-2 {
+      display: grid;
+      color: #FFFFFF;
+    }
+
+    .main-footer-category-2 ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      list-style: none;
+      letter-spacing: 1px;
+    }
+
+    .main-footer-category-3 {
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-footer-category-3 img {
+      border-radius: 20px;
+    }
+
+    .main-footer-category-3box1 {
+      letter-spacing: 2rem;
+      margin: .5rem 0.5rem;
+    }
+
+    .main-footer-category-3box2 {
+      letter-spacing: 4rem;
+      margin: 1rem 3rem;
+    }
+
+    .footer-copyright {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+
+<body>
+  <!--Home Section Starts-->
+  <section class="home">
+    <nav class="nav-background">
+      <div class="logo">
+        <a href="index.html"><img src="images/newlogo1.png" alt="SpiceSafari"></a>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="spicesafari-about.html" target="_blank">About</a></li>
+        <li><a href="#">Destinations</a>
+          <ul class="submenu">
+            <li><img src="https://t4.ftcdn.net/jpg/01/63/13/31/360_F_163133107_nAlMgjPUyciTEnZCs4GF97wSTYXDAHAn.webp"
+                width="30" height="15"><a href="ss-destinations-india.html">India</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/01/07/55/38/240_F_107553806_koihrIkK5nhOJ0xb4YCQoycuR5MRiOYJ.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-uae.html">United Arab Emirates</a></li>
+
+            <li><img src="https://t4.ftcdn.net/jpg/00/65/12/49/240_F_65124908_UpNHzTdQn2HNAIT8yYqybMQeGfsRmVc7.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-usa.html">United States of America</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/00/35/76/34/240_F_35763485_gQJYDbJe7k4RUMwOurLBilnBmsjSPJ9w.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-eur.html">Europe</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/01/04/47/12/240_F_104471279_8yKN8aFzt4yPsU8MdYjCXqequAPMLgSK.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-aus.html">Australia</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/00/62/19/54/240_F_62195416_wfzM4Baz70OjEU54EhsCpvuQWlIhukPg.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-jap.html">Japan</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/00/97/42/76/240_F_97427603_7hc4EfKcx14N755wF1qHmF0FmvCRdknb.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-russia.html">Russia</a></li>
+          </ul>
+        </li>
+        <li><a href="spicesafari-packages.html#1apac2bkag3ces">Packages</a></li>
+        <li><a href="spicesafari-contact.html" target="_blank">Contact</a></li>
+        <div class="signup">
+          <a href="spicesafari-register.html">Login</a>
+        </div>
+      </ul>
+    </nav>
+    <div class="head-txt">
+      <button><a href="#get">Meet The Team &#x1F447;</a></button>
+    </div>
+  </section>
+  <!--Home Section Ends-->
+  <div class="about-txt">
+    <strong>Life’s too short for ordinary. That’s why we’ve spent over 30 years finding, visiting and choosing brilliant
+      places to stay. For people who love special.</strong>
+    <div class="about-txt-box">* * * *</div>
+    <div class="about-txt-1">
+      <p id="get" >
+        Our mission is to: Bring together people and places of spirit and character for meaningful experiences. Have a
+        positive social, cultural and environmental impact. <br><br>
+
+        You can read more about the principles we were founded on, the way we work and how we choose the places we
+        feature here. There might even be a chance for you to come and join us, as we always like welcoming new people
+        to our team.
+      </p>
+    </div>
+  </div>
+  <div class="manage">
+    <h1>Meet The Buisness Visonaries and Creator</h1>
+    <div>
+      <div class="per1">
+        <img class="img1" width="220" height="140" src="images/krish.jpg" alt="">
+        <div class="p1">
+          <h3>Founder & CEO</h3>
+          <p>With a lifelong passion for travel and a background in sustainable tourism, Krish is th driving force behind SpiceSafari. His vision is to create transformative travel experiences that promote cultural understanding and environmental stewardship.</p>
+        </div>
+      </div>
+    </div>
+    <div class="per1">
+      <img class="img1" width="220" height="140" src="images/sarthak.jpg" alt="">
+      <div class="p1">
+        <h3>Chief Operating Officer</h3>
+        <p>
+          Sarthak is a creative strategist with a flair for storytelling and digital marketing. As our COO, He leads our marketing efforts, sharing the SpiceSafari experience with the world and inspiring travelers to embark on their own adventures.
+        </p>
+      </div>
+    </div>
+    <div class="per1">
+      <img class="img1" width="200" height="140" src="images/dhyey.jpg" alt="">
+      <div class="p1">
+        <h3>Manager</h3>
+        <p>
+          Dhyey brings years of expertise in hospitality and adventure travel to SpiceSafari. He curates unique itineraries and ensures that every aspect of your journey is seamlessly executed,
+          from start to finish.
+        </p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="main-footer">
+      <div class="main-footer-content">
+        <a href="index.html"><img class="main-footer-logo" src="images/newlogo1.png" height="60rem" width="60rem"
+            alt=""></a>
+        <div class="main-footer-social">
+          <a class="social-1" href="https://instagram.com"><img
+              src="https://cdn-icons-png.flaticon.com/128/174/174855.png" width="35px" height="35px" alt=""></a>
+          <a class="social-2" href="https://linkedin.com"><img
+              src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="35px" height="35px" alt=""></a>
+          <a class="social-3" href="https://wa.me/+919429984468"><img
+              src="https://cdn-icons-png.flaticon.com/128/3536/3536445.png" width="35px" height="35px" alt=""></a>
+          <a class="social-4" href="https://x.com"><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png"
+              width="35px" height="35px" alt=""></a>
+          <div class="footer-copyright">
+            <h4>&copy 2024 | All Rights Reserved | SpiceSafari <br>
+              Managed by: Krish Thakker , Sarthak Tandel and Dhyey Visodiya</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-footer-category">
+      <div class="main-footer-category-1">
+        <h3>About SpiceSafari</h3> <br>
+        <ul>
+          <li><a href="spicesafari-about.html">About Us</a></li>
+          <li><a href="">Write to Us</a></li>
+          <li><a href="">Terms & Conditions</a></li>
+          <li><a href="">Policies</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="main-footer-category-2">
+        <h3>Category</h3> <br>
+        <ul>
+          <li><a href="">Packages</a></li>
+          <li><a href="">Bus Tickets</a></li>
+          <li><a href="">Flight Tickets</a></li>
+          <li><a href="">Train Tickets</a></li>
+          <li><a href="">Hotel Booking</a></li>
+          <li><a href="">Destinations</a></li>
+        </ul>
+      </div>
+      <div class="main-footer-category-3">
+        <h2>Our Partners: </h2> <br>
+        <div class="main-footer-category-3box1">
+          <a href="https://makemytrip.com"><img
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png" width="150px" height="50px"
+              alt=""></a>
+
+          <a class="main-footer-category-3-img-1" href="https://gsrtc.in"><img
+              src="https://imgs.search.brave.com/V5aQ-gF1n6cCe1U0LdXvVJ9cNCA6SbxMNlnfT3NWaZk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L2xv/Z29wZWRpYS9pbWFn/ZXMvYi9iMS9HU1JU/Qy5wbmcvcmV2aXNp/b24vbGF0ZXN0L3Nj/YWxlLXRvLXdpZHRo/LWRvd24vMjQwP2Ni/PTIwMjAwNTIxMDYw/MTQ1.jpeg"
+              width="150px" height="90px"></a>
+        </div>
+        <div class="main-footer-category-3box2">
+          <a class="main-footer-category-3-img-2" href="https://irctc.co.in"><img
+              src="https://www.irctc.co.in/nget/assets/images/logo.png" alt=""></a>
+
+          <a class="main-footer-category-3-img-3" href="https://booking.com"><img
+              src="https://imgs.search.brave.com/faUcO868uF89TBA3AeOsyEV1bSvWMo54XdSapwOsWc8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9sb2dv/c2FyY2hpdmUuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIx/LzA5L0Jvb2tpbmct/bG9nb3Muc3Zn.svg"
+              width="150px" height="80px" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/2b90a45c2f.js" crossorigin="anonymous"></script>
+  <script>
+    window.addEventListener("scroll", function () {
+      var navbar = document.querySelector(".nav-background");
+      navbar.classList.toggle("scrolled", window.scrollY > 0);
+    });
+    // Add a click event listener to the link
+    link.addEventListener("click", (event) => {
+      // Prevent the default behavior of the link
+      event.preventDefault();
+    });
+  </script>
+</body>
+
+</html>

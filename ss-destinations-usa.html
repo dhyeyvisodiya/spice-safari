@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceSafari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            background-color: transparent;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            height: 1800px;
+            background-color: lightsteelblue;
+        }
+
+        /* Adjust styles for the home section as needed */
+        .home {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://t4.ftcdn.net/jpg/00/65/12/49/240_F_65124908_UpNHzTdQn2HNAIT8yYqybMQeGfsRmVc7.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 92vh;
+        }
+
+        nav {
+            position: sticky;
+            top: 1rem;
+            display: flex;
+            z-index: 1;
+        }
+
+        /* Adjust logo image size */
+        .logo img {
+            width: 10rem;
+            height: 2.5rem;
+            position: relative;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+            backdrop-filter: blur(5px);
+            border-radius: 200px;
+            z-index: 2;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            width: 95%;
+            height: 10%;
+            margin: 0 auto;
+          }
+          
+          /* Menu styles */
+          .menu {
+            display: flex;
+            gap: 1.9rem;
+            list-style: none;
+            margin-left: 30rem;
+          }
+          
+          .menu li {
+            display: inline-block;
+          }
+          
+          .menu li a {
+            font-weight: bolder;
+            color: white;
+            padding: 0.2rem 0.09rem;
+            text-decoration: none;
+            font-size: large;
+          }
+          
+          .menu li a:hover {
+            background-color: lightslategray;
+            border-radius: 5px;
+          }
+          
+          .menu .submenu {
+            display: none;
+            position: absolute;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+            border-top: none;
+            border-radius: 10px;
+            z-index: 1;
+          }
+          
+          .menu .submenu li {
+            display: block;
+          }
+          
+          .menu li ul li {
+            margin: 0.5rem 0.3rem;
+          }
+          
+          .submenu img {
+            border-radius: 3px;
+            margin: 0 0.3rem;
+          }
+          
+          .menu li:hover .submenu {
+            display: block;
+            margin-top: 0.2rem;
+          }
+          
+          /* Login/signup area styles */
+          .signup a {
+            background-color: #008ecf;
+            font-size: large;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+          }
+          
+          .signup a:hover {
+            background-color: #fff;
+            color: #008ecf;
+          }
+          
+          .head-txt {
+            color: #CCCCCC;
+            letter-spacing: 0px;
+            position: absolute;
+            top: 25rem;
+            left: 2rem;
+            z-index: 1; 
+          }
+          .head-txt span {
+            color: lightyellow;
+            font-size: 40px;
+          }
+          
+          .head-txt p {
+            font-size: 18px;
+          }
+          
+          .head-txt:hover {
+            color: #FFFFFF;
+            transition: 1s ease-in;
+          }
+
+          @media only screen and (max-width: 600px) {
+            .menu {
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+        
+            .menu li {
+                display: block;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+        
+            .menu li a {
+                display: inline-block;
+                padding: 0.5rem 1rem;
+            }
+        
+            .logo img {
+                width: 8rem;
+                height: auto;
+            }
+        
+            .head-txt {
+                top: 20rem;
+                left: 1rem;
+            }
+        }
+        
+        /* For tablets and larger devices */
+        @media only screen and (min-width: 601px) {
+            /* Add styles for tablets and larger devices here */
+        }
+        
+          
+        .explorebtn{
+            background-color: white;
+            margin: 0rem;
+            border-radius: 15px;
+            padding: .6rem 1rem;
+        }
+        .explore a{
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+        .explore a:hover{
+            color: white;
+            background-color: black;
+        }
+        .explore::after{
+            transition: 0.3s ease;
+        }
+        .namecont{
+            padding: 1rem 3rem;
+        }
+        .destination {
+            margin-left: 2.5rem;
+            background-color: aliceblue;
+            border-radius: 12px;
+            width: 25rem;
+            height: 21rem;        
+            position: relative;
+        }
+        .destination:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 10px 10px 2px gray ;
+        }
+        .destinationcont{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            row-gap: 3rem;
+        }
+        .destination img {
+            width: 25rem;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 11.4rem;
+            border-top-right-radius: 12px;
+            border-top-left-radius: 12px;
+        }
+        .destination h2 {
+            text-align: center;
+            text-wrap: wrap;
+        }
+        .destination p {
+            text-align: justify;
+            text-wrap: wrap;
+            padding: 0.2rem 0.5rem;
+        }
+        .book-button {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: white;
+            margin: 2rem 7rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        .bookbtn{
+            margin: 0.5rem 1rem;
+        }
+        .destinationcont a{
+            margin: 0;
+        }
+        .con {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+        .a1 {
+            font-size: 30px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 25px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+        }
+        .a1:hover {
+            background-color: #0056b3;
+        }
+        .book-button:hover{
+            background-color: darkorchid;
+        }
+        .main-footer {
+            width: 100%;
+            height: 20rem;
+            background-color: black;
+        }
+        
+        .main-footer-logo {
+            width: 12rem;
+            height: 3rem;
+            margin: 2rem 2rem;
+        }
+        
+        .main-footer-social {
+            list-style: none;
+            margin: 6rem 0.5rem;
+            padding: 1rem;
+        }
+        .main-footer-social a{
+            margin: 0.4rem;
+        }
+        .footer-copyright{
+            letter-spacing: 0.09rem;
+        }
+        
+        .main-footer-category {
+            display: flex;
+            margin-top: -19rem;
+            gap: 4rem;
+            height: 2rem;
+            justify-content: right;
+        }
+        
+        .main-footer-category-1 {
+            display: grid;
+            color: #FFFFFF;
+        }
+        
+        .main-footer-category-1 a,
+        .main-footer-category-2 a {
+            color: azure;
+            text-decoration: none;
+        }
+        
+        .main-footer-category-1 ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            letter-spacing: 1px;
+        }
+        
+        .main-footer-category-2 {
+            display: grid;
+            color: #FFFFFF;
+        }
+        
+        .main-footer-category-2 ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            letter-spacing: 1px;
+        }
+        
+        .main-footer-category-3 {
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+        }
+        .main-footer-category-3 img{
+            border-radius: 20px;
+        }
+        
+        .main-footer-category-3box1{
+            letter-spacing: 2rem;
+            margin: .5rem 0.5rem;
+        }
+        .main-footer-category-3box2{
+            letter-spacing: 4rem;
+            margin: 1rem 3rem;
+        }
+        
+        .footer-copyright {
+            color: #FFFFFF;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--Home Section Starts-->
+    <section class="home">
+        <nav class="nav-background">
+            <div class="logo">
+                <img src="images/newlogo1.png" alt="SpiceSafari">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="spicesafari-about.html">About</a></li>
+                <li><a href="#">Destinations</a>
+                    <ul class="submenu">
+                        <li><img src="https://t4.ftcdn.net/jpg/01/63/13/31/360_F_163133107_nAlMgjPUyciTEnZCs4GF97wSTYXDAHAn.webp" width="30" height="15" ><a href="ss-destinations-india.html">India</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/01/07/55/38/240_F_107553806_koihrIkK5nhOJ0xb4YCQoycuR5MRiOYJ.jpg" width="30" height="20" alt=""><a href="ss-destinations-uae.html" >United Arab Emirates</a></li>
+
+                        <li><img src="https://t4.ftcdn.net/jpg/00/65/12/49/240_F_65124908_UpNHzTdQn2HNAIT8yYqybMQeGfsRmVc7.jpg" width="30" height="20" alt=""><a href="ss-destinations-usa.html">United States of America</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/35/76/34/240_F_35763485_gQJYDbJe7k4RUMwOurLBilnBmsjSPJ9w.jpg" width="30" height="20" alt=""><a href="ss-destinations-eur.html">Europe</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/01/04/47/12/240_F_104471279_8yKN8aFzt4yPsU8MdYjCXqequAPMLgSK.jpg" width="30" height="20" alt=""><a href="ss-destinations-aus.html">Australia</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/62/19/54/240_F_62195416_wfzM4Baz70OjEU54EhsCpvuQWlIhukPg.jpg" width="30" height="20" alt=""><a href="ss-destinations-jap.html">Japan</a></li>
+
+                        <li><img src="https://t3.ftcdn.net/jpg/00/97/42/76/240_F_97427603_7hc4EfKcx14N755wF1qHmF0FmvCRdknb.jpg" width="30" height="20" alt=""><a href="ss-destinations-russia.html">Russia</a></li>
+                    </ul>
+                </li>
+                <li><a href="spicesafari-packages.html#1apac2bkag3ces">Packages</a></li>
+                <li><a href="spicesafari-contact.html">Contact</a></li>
+                <div class="signup">
+                    <a href="spicesafari-register.html">Login</a>
+                </div>
+            </ul>
+        </nav>
+        <div class="head-txt">
+            <div class="head-txt-txt">
+                <span>Explore Popular Destinations of USA</span><br><br>
+                <p>The United States of America (USA) is a diverse and influential country located in North America. USA is a diverse, dynamic, and influential country with a rich history, vibrant culture, and global impact.</p>
+            </div> <br>
+            <div class="explore">
+                <a class="explorebtn" href="#name">Explore Now</a>
+            </div>
+        </div>
+    </section>
+    <!--Home Section Ends-->
+
+    <!--Destination Section Starts-->
+    <section>
+        <div class="namecont">
+            <div class="cont">
+                <ul id="name">
+                    <li><a class="a1" href="ss-destinations-eur.html">Europe</a></li>
+                    <li><a class="a1" href="ss-destinations-uae.html">UAE</a></li>
+                    <li><a class="a1" href="ss-destinations-usa.html">USA</a></li>
+                    <li><a class="a1" href="ss-destinations-india.html">India</a></li>
+                    <li><a class="a1" href="ss-destinations-aus.html">Australia</a></li>
+                    <li><a class="a1" href="ss-destinations-jap.html">Japan</a></li>
+                    <li><a class="a1" href="ss-destinations-russia.html">Russia</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="destinationcont">
+            <div class="destination" id="nyc">
+                <img src="https://t3.ftcdn.net/jpg/01/91/74/46/360_F_191744672_HYfG0261FemsGK5WZWX868BokvbHNmqV.jpg" alt="New York City Skyline">
+                <h2>New York City</h2>
+                <p>New York City is known for its iconic landmarks like the Statue of Liberty, Times Square, and Central Park. It's a cultural hub with world-class museums, theaters, and diverse neighborhoods.</p>
+                <div class="bookbtn">
+                    <a href="https://www.nyc.gov/" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="grand-canyon">
+                <img src="https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-1400863281-min.jpg" alt="Grand Canyon">
+                <h2>Grand Canyon</h2>
+                <p>The Grand Canyon is one of the most breathtaking natural wonders in the world. Carved by the Colorado River, it offers stunning vistas, hiking trails, and opportunities for outdoor adventures.</p>
+                <div class="bookbtn">
+                    <a href="https://www.nps.gov/grca/" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="yellowstone">
+                <img src="https://i.natgeofe.com/n/21198136-bf49-44fe-98fe-ff2f6d96e4e2/mosaic-yellowstone-wyoming_3x2.jpg" alt="Yellowstone National Park">
+                <h2>Yellowstone National Park</h2>
+                <p>Yellowstone is America's first national park and is famous for its geothermal features, including Old Faithful geyser, as well as its diverse wildlife, such as bears, wolves, and bison.</p>
+                <div class="bookbtn">
+                    <a href="https://www.yellowstonenationalpark.com/" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="disney-world">
+                <img src="https://cdn.mos.cms.futurecdn.net/xn8hEA2GPCPE3Fo8GPR7Ri.jpg" alt="Disney World">
+                <h2>Disney World</h2>
+                <p>Walt Disney World Resort in Florida is a magical destination for families with its theme parks, including Magic Kingdom, EPCOT, and Disney's Hollywood Studios, as well as water parks and resorts.</p>
+                <div class="bookbtn">
+                    <a href="https://disneyworld.disney.go.com/" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="hollywood">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hollywood_Sign_%28Zuschnitt%29.jpg/1200px-Hollywood_Sign_%28Zuschnitt%29.jpg" alt="Hollywood Sign">
+                <h2>Hollywood</h2>
+                <p>Hollywood is the entertainment capital of the world, famous for its movie studios, Walk of Fame, and iconic landmarks like the Hollywood Sign and Grauman's Chinese Theatre.</p>
+                <div class="bookbtn">
+                    <a href="https://www.britannica.com/place/Hollywood-California" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="niagara-falls">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3jxNV3jWKe257OWp_8IGoG3JcNA1ceJQeaKJSc14zEA&s" alt="Niagara Falls">
+                <h2>Niagara Falls</h2>
+                <p>Niagara Falls, straddling the border between the US and Canada, is a collection of three waterfalls renowned for their beauty and power. Visitors can experience the falls from various vantage points.</p>
+                <div class="bookbtn">
+                    <a href="https://www.niagarafallsstatepark.com/" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="las-vegas">
+                <img src="https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-108009569.jpg" alt="Las Vegas Strip">
+                <h2>Las Vegas</h2>
+                <p>Las Vegas is a vibrant city known for its lively entertainment, world-class casinos, and luxurious resorts. The Las Vegas Strip is lined with iconic hotels, restaurants, and attractions.</p>
+                <div class="bookbtn">
+                    <a href="https://www.visitlasvegas.com/" class="book-button">Explore More</a>
+                </div>
+            </div>
+    
+            <div class="destination" id="san-francisco">
+                <img src="https://www.planetware.com/photos-large/USCA/california-san-francisco-golden-gate-bridge.jpg" alt="Golden Gate Bridge">
+                <h2>San Francisco</h2>
+                <p>San Francisco is a cosmopolitan city famous for its steep hills, cable cars, and landmarks like the Golden Gate Bridge and Alcatraz Island. It's known for its diverse neighborhoods and cultural institutions.</p>
+                <div class="bookbtn">
+                    <a href="https://www.sftravel.com/" class="book-button">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </section> <br><br>
+    <!--Destination Section Ends-->
+    <footer>
+        <div class="main-footer">
+            <div class="main-footer-content">
+                <a href="index.html"><img class="main-footer-logo" src="images/newlogo1.png" height="60rem" width="60rem" alt=""></a>
+                <div class="main-footer-social">
+                    <a class="social-1" href="https://instagram.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/174/174855.png" width="35px" height="35px" alt=""></a>
+                    <a class="social-2" href="https://linkedin.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="35px" height="35px" alt=""></a>
+                    <a class="social-3" href="https://wa.me/+919429984468"><img
+                            src="https://cdn-icons-png.flaticon.com/128/3536/3536445.png" width="35px" height="35px" alt=""></a>
+                    <a class="social-4" href="https://x.com"><img
+                            src="https://cdn-icons-png.flaticon.com/128/733/733579.png" width="35px" height="35px" alt=""></a>
+                    <div class="footer-copyright">
+                    <h4>&copy 2024 | All Rights Reserved | SpiceSafari <br>
+                    Managed by: Krish Thakker , Sarthak Tandel and Dhyey Visodiya</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer-category">
+            <div class="main-footer-category-1">
+                <h3>About SpiceSafari</h3> <br>
+                <ul>
+                    <li><a href="spicesafari-about.html">About Us</a></li>
+                    <li><a href="">Write to Us</a></li>
+                    <li><a href="">Terms & Conditions</a></li>
+                    <li><a href="">Policies</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="main-footer-category-2">
+                <h3>Category</h3> <br>
+                <ul>
+                    <li><a href="">Packages</a></li>
+                    <li><a href="">Bus Tickets</a></li>
+                    <li><a href="">Flight Tickets</a></li>
+                    <li><a href="">Train Tickets</a></li>
+                    <li><a href="">Hotel Booking</a></li>
+                    <li><a href="">Destinations</a></li>
+                </ul>
+            </div>
+            <div class="main-footer-category-3">
+                <h2>Our Partners: </h2> <br>
+                <div class="main-footer-category-3box1">
+                    <a href="https://makemytrip.com"><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png" width="150px" height="50px" alt=""></a>
+
+                    <a class="main-footer-category-3-img-1" href="https://gsrtc.in"><img src="https://imgs.search.brave.com/V5aQ-gF1n6cCe1U0LdXvVJ9cNCA6SbxMNlnfT3NWaZk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L2xv/Z29wZWRpYS9pbWFn/ZXMvYi9iMS9HU1JU/Qy5wbmcvcmV2aXNp/b24vbGF0ZXN0L3Nj/YWxlLXRvLXdpZHRo/LWRvd24vMjQwP2Ni/PTIwMjAwNTIxMDYw/MTQ1.jpeg" width="150px" height="90px"></a>
+                </div>
+                <div class="main-footer-category-3box2">
+                    <a class="main-footer-category-3-img-2" href="https://irctc.co.in"><img src="https://www.irctc.co.in/nget/assets/images/logo.png" alt=""></a>
+
+                    <a class="main-footer-category-3-img-3" href="https://booking.com"><img src="https://imgs.search.brave.com/faUcO868uF89TBA3AeOsyEV1bSvWMo54XdSapwOsWc8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9sb2dv/c2FyY2hpdmUuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIx/LzA5L0Jvb2tpbmct/bG9nb3Muc3Zn.svg" width="150px" height="80px" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

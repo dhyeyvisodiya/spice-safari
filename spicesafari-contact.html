@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpiceSafari | Contact</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+      text-transform: capitalize;
+      background-color: transparent;
+    }
+
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      background-color: lightblue;
+    }
+
+    /*-----------------------------------Home and Navbar CSS Starts-----------------------------*/
+    .home {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://st.depositphotos.com/1570716/4101/i/450/depositphotos_41018917-stock-photo-businessman-push-to-contact-us.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      height: 92vh;
+      background-position: center;
+      background-size: cover;
+      animation: slideBackground 9s infinite alternate;
+    }
+
+    @keyframes slideBackground {
+      0% {
+        background-image: url('images/contact1.jpg');
+      }
+
+      25% {
+        background-image: url('images/contact2.jpg');
+      }
+
+      50% {
+        background-image: url('images/contact3.jpg');
+      }
+
+      75% {
+        background-image: url('images/contact4.jpg');
+      }
+
+      100% {
+        background-image: url('images/contact5.jpg');
+      }
+    }
+
+    nav {
+      position: fixed;
+      top: 1rem;
+      left: 2rem;
+      display: flex;
+      z-index: 1;
+    }
+
+    /* Adjust logo image size */
+    .logo img {
+      width: 10rem;
+      height: 2.5rem;
+      position: relative;
+    }
+
+    /* Navigation bar styles */
+
+    nav {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+      backdrop-filter: blur(5px);
+      border-radius: 200px;
+      z-index: 2;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      width: 95%;
+      height: 10%;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .nav-background.scrolled {
+      background-color: #333;
+      border-radius: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Menu styles */
+    .menu {
+      display: flex;
+      gap: 1.9rem;
+      list-style: none;
+      margin-left: 30rem;
+    }
+
+    .menu li {
+      display: inline-block;
+    }
+
+    .menu li a {
+      font-weight: bolder;
+      color: white;
+      padding: 0.2rem 0.09rem;
+      text-decoration: none;
+      font-size: large;
+    }
+
+    .menu li a:hover {
+      background-color: lightslategray;
+      border-radius: 5px;
+    }
+
+    .menu .submenu {
+      display: none;
+      position: absolute;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+      border-top: none;
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    .menu .submenu li {
+      display: block;
+    }
+
+    .menu li ul li {
+      margin: 0.5rem 0.3rem;
+    }
+
+    .submenu img {
+      border-radius: 3px;
+      margin: 0 0.3rem;
+    }
+
+    .menu li:hover .submenu {
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    /* Login/signup area styles */
+    .signup a {
+      background-color: #008ecf;
+      font-size: large;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .signup a:hover {
+      background-color: #fff;
+      color: #008ecf;
+    }
+
+    .head-txt {
+      color: #CCCCCC;
+      letter-spacing: 0px;
+      position: absolute;
+      top: 25rem;
+      left: 2rem;
+      z-index: 1;
+      transition: top 0.3s;
+    }
+
+    .head-txt span {
+      color: lightyellow;
+      font-size: 40px;
+    }
+
+    .head-txt a {
+      background-color: lawngreen;
+      text-decoration: none;
+      color: black;
+      padding: 1rem 5rem;
+      margin: 05rem;
+      border-radius: 15px;
+      font-size: x-large;
+    }
+
+    .head-txt a:hover {
+      background-color: goldenrod;
+    }
+
+    /*-----------------------------------Home and Navbar CSS ends-----------------------------*/
+
+    /*-----------------------------------Feedback Start-----------------------------*/
+    .contact {
+      width: 50%;
+      padding: 2rem;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .main-connect {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    form {
+      margin: 20px 0rem;
+      width: 35rem;
+      margin-right: 1rem;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: aliceblue;
+    }
+
+    label {
+      display: block;
+      margin: 0.2rem 0;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 5px;
+      margin: 0.4rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="submit"] {
+      background-color: rgba(104, 104, 104, 0.7);
+      color: #fff;
+      border: none;
+      margin-right: 10rem;
+      padding: 0.8rem 2.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: black
+    }
+
+    .feed {
+      margin: 2rem 2rem;
+    }
+
+    .feed p {
+      margin: 0.5rem 0.5rem;
+    }
+
+    :root {
+      --primary-colour: white;
+      --secondary-colour: lightblue;
+
+      --star-colour: steelblue;
+    }
+    .container {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: 40%;
+      height: 20%;
+      margin-top: -1.2rem;
+      margin-left: 10rem;
+      transform: translate(-50%, -50%) rotateY(180deg);
+    }
+
+    .container .container__items {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0 .5em;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container .container__items input {
+      display: none;
+    }
+
+    .container .container__items label {
+      width: 20%;
+      aspect-ratio: 1;
+      cursor: pointer;
+    }
+
+    .container .container__items label .star-stroke {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      background: var(--secondary-colour);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    .container .container__items label .star-stroke .star-fill {
+      width: 70%;
+      aspect-ratio: 1;
+      background: var(--primary-colour);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    .container .container__items input:hover~label .star-stroke,
+    .container .container__items input:checked~label .star-stroke {
+      background: var(--star-colour);
+    }
+
+    .container .container__items input:checked~label .star-stroke .star-fill {
+      background: var(--star-colour);
+    }
+
+    .container .container__items label:hover .label-description::after {
+      content: attr(data-content);
+      position: fixed;
+      left: 0;
+      right: 0;
+      margin-top: 0.2rem;
+      margin-inline: auto;
+      width: 100%;
+      height: 2em;
+      color: black;
+      text-align: center;
+      font-size: 1.5rem;
+      transform: rotateY(180deg);
+    }
+     /*-----------------------------------Feedback ends-----------------------------*/
+
+    /* Footer Styles */
+    .footer-text {
+      margin: 6rem 2rem;
+      display: flex;
+      column-gap: 5rem;
+    }
+
+    .footer-text-box {
+      flex-wrap: wrap;
+      display: inline-block;
+      width: 100%;
+      height: 16rem;
+    }
+
+    .footer-text h2 {
+      width: 100%;
+      height: 2rem;
+    }
+
+    .footer-text-box p {
+      font-size: small;
+    }
+
+    .main-footer {
+      width: 100%;
+      height: 20rem;
+      background-color: black;
+    }
+
+    .main-footer-logo {
+      width: 12rem;
+      height: 3rem;
+      margin: 2rem 2rem;
+    }
+
+    .main-footer-social {
+      list-style: none;
+      margin: 6rem 0.5rem;
+      padding: 1rem;
+    }
+
+    .main-footer-social a {
+      margin: 0.4rem;
+    }
+
+    .footer-copyright {
+      letter-spacing: 0.09rem;
+    }
+
+    .main-footer-category {
+      display: flex;
+      margin-top: -19rem;
+      gap: 4rem;
+      height: 2rem;
+      justify-content: right;
+    }
+
+    .main-footer-category-1 {
+      display: grid;
+      color: #FFFFFF;
+    }
+
+    .main-footer-category-1 a,
+    .main-footer-category-2 a {
+      color: azure;
+      text-decoration: none;
+    }
+
+    .main-footer-category-1 ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      list-style: none;
+      letter-spacing: 1px;
+    }
+
+    .main-footer-category-2 {
+      display: grid;
+      color: #FFFFFF;
+    }
+
+    .main-footer-category-2 ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      list-style: none;
+      letter-spacing: 1px;
+    }
+
+    .main-footer-category-3 {
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-footer-category-3 img {
+      border-radius: 10px;
+    }
+
+    .main-footer-category-3box1 {
+      letter-spacing: 2rem;
+      margin: 0.5rem 0.5rem;
+    }
+
+    .main-footer-category-3box2 {
+      letter-spacing: 4rem;
+      margin: 1rem 3rem;
+    }
+
+    .footer-copyright {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+
+<body>
+  <!--Home Section Starts-->
+  <section class="home">
+    <nav class="nav-background">
+      <div class="logo">
+        <a href="index.html"><img src="images/newlogo1.png" alt="SpiceSafari"></a>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="spicesafari-about.html" target="_blank">About</a></li>
+        <li><a href="#">Destinations</a>
+          <ul class="submenu">
+            <li><img src="https://t4.ftcdn.net/jpg/01/63/13/31/360_F_163133107_nAlMgjPUyciTEnZCs4GF97wSTYXDAHAn.webp"
+                width="30" height="15"><a href="ss-destinations-india.html">India</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/01/07/55/38/240_F_107553806_koihrIkK5nhOJ0xb4YCQoycuR5MRiOYJ.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-uae.html">United Arab Emirates</a></li>
+
+            <li><img src="https://t4.ftcdn.net/jpg/00/65/12/49/240_F_65124908_UpNHzTdQn2HNAIT8yYqybMQeGfsRmVc7.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-usa.html">United States of America</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/00/35/76/34/240_F_35763485_gQJYDbJe7k4RUMwOurLBilnBmsjSPJ9w.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-eur.html">Europe</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/01/04/47/12/240_F_104471279_8yKN8aFzt4yPsU8MdYjCXqequAPMLgSK.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-aus.html">Australia</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/00/62/19/54/240_F_62195416_wfzM4Baz70OjEU54EhsCpvuQWlIhukPg.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-jap.html">Japan</a></li>
+
+            <li><img src="https://t3.ftcdn.net/jpg/00/97/42/76/240_F_97427603_7hc4EfKcx14N755wF1qHmF0FmvCRdknb.jpg"
+                width="30" height="20" alt=""><a href="ss-destinations-russia.html">Russia</a></li>
+          </ul>
+        </li>
+        <li><a href="spicesafari-packages.html#1apac2bkag3ces">Packages</a></li>
+        <li><a href="spicesafari-contact.html" target="_blank">Contact</a></li>
+        <div class="signup">
+          <a href="spicesafari-register.html">Login</a>
+        </div>
+      </ul>
+    </nav>
+
+    <div class="head-txt">
+      <span><b>Contact Us Now &#x1F447;</b></span> <br><br>
+      <button><a href="#getin">Contact</a></button>
+    </div>
+  </section>
+  <!--Home Section Ends-->
+
+  <div class="main-connect" id="getin">
+    <div class="feed">
+      <form id="myForm" action="#">
+        <h2>Get in Touch</h2>
+        <p>Please fill out this Form and we will be in touch in Lightning Speed</p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea><br>
+        <div class="feedback">
+          <input type="submit" id="submitButton" value="Submit">
+          <div class="container">
+            <div class="container__items">
+              <input type="radio" name="stars" id="st5">
+              <label for="st5">
+                <div class="star-stroke">
+                  <div class="star-fill"></div>
+                </div>
+                <div class="label-description" data-content="Excellent"></div>
+              </label>
+              <input type="radio" name="stars" id="st4">
+              <label for="st4">
+                <div class="star-stroke">
+                  <div class="star-fill"></div>
+                </div>
+                <div class="label-description" data-content="Good"></div>
+              </label>
+              <input type="radio" name="stars" id="st3">
+              <label for="st3">
+                <div class="star-stroke">
+                  <div class="star-fill"></div>
+                </div>
+                <div class="label-description" data-content="OK"></div>
+              </label>
+              <input type="radio" name="stars" id="st2">
+              <label for="st2">
+                <div class="star-stroke">
+                  <div class="star-fill"></div>
+                </div>
+                <div class="label-description" data-content="Bad"></div>
+              </label>
+              <input type="radio" name="stars" id="st1">
+              <label for="st1">
+                <div class="star-stroke">
+                  <div class="star-fill"></div>
+                </div>
+
+                <div class="label-description" data-content="Terrible"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="contact">
+      <h2>Connect With Us:</h2> <br>
+      <p>For Support or any Questions: </p>
+      <p>E-mail us at <a href="mailto:info@spicesafari.com">info@spicesafari.com</a></p> <br><br>
+
+      <h3>Nadiad, India</h3>
+      <p>Aarav Boys Hostel, opp. Sales India Nadiad, Gujarat-387001</p> <br><br>
+
+      <h3>Feel Free to Contact Us:</h3>
+      <p>Toll-Free No.: 1800 102 8747 <br>
+        Mobile No.: (1) +91 8140046213
+        (2) +91 9429984468
+        (3) +91 9913191735
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="main-footer">
+      <div class="main-footer-content">
+        <a href="index.html"><img class="main-footer-logo" src="images/newlogo1.png" height="60rem" width="60rem"
+            alt=""></a>
+        <div class="main-footer-social">
+          <a class="social-1" href="https://instagram.com"><img
+              src="https://cdn-icons-png.flaticon.com/128/174/174855.png" width="35px" height="35px" alt=""></a>
+          <a class="social-2" href="https://linkedin.com"><img
+              src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="35px" height="35px" alt=""></a>
+          <a class="social-3" href="https://wa.me/+919429984468"><img
+              src="https://cdn-icons-png.flaticon.com/128/3536/3536445.png" width="35px" height="35px" alt=""></a>
+          <a class="social-4" href="https://x.com"><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png"
+              width="35px" height="35px" alt=""></a>
+          <div class="footer-copyright">
+            <h4>&copy 2024 | All Rights Reserved | SpiceSafari <br>
+              Managed by: Krish Thakker , Sarthak Tandel and Dhyey Visodiya</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-footer-category">
+      <div class="main-footer-category-1">
+        <h3>About SpiceSafari</h3> <br>
+        <ul>
+          <li><a href="spicesafari-about.html">About Us</a></li>
+          <li><a href="">Write to Us</a></li>
+          <li><a href="">Terms & Conditions</a></li>
+          <li><a href="">Policies</a></li>
+          <li><a href="spicesafari-contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="main-footer-category-2">
+        <h3>Category</h3> <br>
+        <ul>
+          <li><a href="spicesafari-packages.html">Packages</a></li>
+          <li><a href="">Bus Tickets</a></li>
+          <li><a href="">Flight Tickets</a></li>
+          <li><a href="">Train Tickets</a></li>
+          <li><a href="">Hotel Booking</a></li>
+          <li><a href="ss-destinations-india.html">Destinations</a></li>
+        </ul>
+      </div>
+      <div class="main-footer-category-3">
+        <h2>Our Partners: </h2> <br>
+        <div class="main-footer-category-3box1">
+          <a href="https://makemytrip.com"><img
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png" width="150px" height="50px"
+              alt=""></a>
+
+          <a class="main-footer-category-3-img-1" href="https://gsrtc.in"><img
+              src="https://imgs.search.brave.com/V5aQ-gF1n6cCe1U0LdXvVJ9cNCA6SbxMNlnfT3NWaZk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L2xv/Z29wZWRpYS9pbWFn/ZXMvYi9iMS9HU1JU/Qy5wbmcvcmV2aXNp/b24vbGF0ZXN0L3Nj/YWxlLXRvLXdpZHRo/LWRvd24vMjQwP2Ni/PTIwMjAwNTIxMDYw/MTQ1.jpeg"
+              width="150px" height="90px"></a>
+        </div>
+        <div class="main-footer-category-3box2">
+          <a class="main-footer-category-3-img-2" href="https://irctc.co.in"><img
+              src="https://www.irctc.co.in/nget/assets/images/logo.png" alt=""></a>
+
+          <a class="main-footer-category-3-img-3" href="https://booking.com"><img
+              src="https://imgs.search.brave.com/faUcO868uF89TBA3AeOsyEV1bSvWMo54XdSapwOsWc8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9sb2dv/c2FyY2hpdmUuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIx/LzA5L0Jvb2tpbmct/bG9nb3Muc3Zn.svg"
+              width="150px" height="80px" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <script src="https://kit.fontawesome.com/2b90a45c2f.js" crossorigin="anonymous"></script>
+  <script>
+    window.addEventListener("scroll", function () {
+      var navbar = document.querySelector(".nav-background");
+      navbar.classList.toggle("scrolled", window.scrollY > 0);
+    });
+    // Add a click event listener to the link
+    link.addEventListener("click", (event) => {
+      // Prevent the default behavior of the link
+      event.preventDefault();
+    });
+  </script>
+
+</body>
+
+</html>
